@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13E28" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="DemoBroadcast" representedClassName="DemoBroadcast" syncable="YES">
+        <attribute name="announcementType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="broadcast" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="personType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="recipient" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="DemoClassObject" representedClassName="DemoClassObject" syncable="YES">
+        <attribute name="nameOfClass" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sortDescript" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="teacherId" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="DemoEconomy" representedClassName="DemoEconomy" syncable="YES">
+        <attribute name="earn" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="spent" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="DemoStoreObject" representedClassName="DemoStoreObject" syncable="YES">
+        <attribute name="cost" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="item" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userType" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="DemoStudent" representedClassName="DemoStudent" syncable="YES">
+        <attribute name="addClassDone" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="checkStatsDone" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="studentsBuyDone" optional="YES" attributeType="Boolean" syncable="YES"/>
+    </entity>
+    <entity name="DemoStudentObject" representedClassName="DemoStudentObject" syncable="YES">
+        <attribute name="coins" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="nameOfclass" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="signedIn" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="studentName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="studentNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="taken" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="teacher" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="teacherEmail" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="DemoTeacher" representedClassName="DemoTeacher" syncable="YES">
+        <attribute name="addBroadcastDone" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="addClassDone" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="addCoinsDone" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="buyStoreDone" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="checkStats" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="manageCoinsDone" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="openStoreDone" optional="YES" attributeType="Boolean" syncable="YES"/>
+    </entity>
+    <entity name="DemoTeacherObject" representedClassName="DemoTeacherObject" syncable="YES">
+        <attribute name="classList" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objectId" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="DemoBroadcast" positionX="0" positionY="45" width="128" height="133"/>
+        <element name="DemoClassObject" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="DemoEconomy" positionX="-9" positionY="27" width="128" height="103"/>
+        <element name="DemoStoreObject" positionX="-18" positionY="27" width="128" height="105"/>
+        <element name="DemoStudentObject" positionX="-36" positionY="9" width="128" height="178"/>
+        <element name="DemoTeacherObject" positionX="-54" positionY="-9" width="128" height="73"/>
+        <element name="DemoStudent" positionX="-18" positionY="63" width="128" height="88"/>
+        <element name="DemoTeacher" positionX="-9" positionY="72" width="128" height="148"/>
+    </elements>
+</model>
