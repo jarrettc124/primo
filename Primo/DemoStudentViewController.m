@@ -108,7 +108,7 @@
     }
     else if (IS_IPHONE){
         [toolbarBackground setFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
-        [self.studentTable setFrame:CGRectMake(0.0, 64.0, 320.0, self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height-64-35)];
+        [self.studentTable setFrame:CGRectMake(0.0, 64.0,self.view.frame.size.width, self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height-64-35)];
     }
     
     self.demoProgressBar= [[UIProgressView alloc]initWithProgressViewStyle:UIProgressViewStyleDefault];
@@ -139,12 +139,19 @@
         [self.view addSubview:tutorialbackground];
         
         if(IS_IPHONE){
-            [tutorialbackground setFrame:CGRectMake(10, 200, 300, 170)];
+            tutorialbackground.translatesAutoresizingMaskIntoConstraints=NO;
+            [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[tutorialbackground(300)]-20-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(tutorialbackground)]];
+            [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-170-[tutorialbackground(170)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(tutorialbackground)]];
             
-            BouncingPencil *pencilArrow = [[BouncingPencil alloc]initWithFrame:CGRectMake(95, 139, 60, 60)];
+            //Set bouncing pencil
+            BouncingPencil *pencilArrow = [[BouncingPencil alloc]init];
             [pencilArrow setTag:2000];
-            [pencilArrow setUpPencilBounceFrame:pencilArrow.frame targetX:15 targetY:-9 rotation:5*M_PI_4];
             [self.view addSubview:pencilArrow];
+            
+            pencilArrow.translatesAutoresizingMaskIntoConstraints=NO;
+            [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-150-[pencilArrow(60)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(pencilArrow)]];
+            [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[pencilArrow(60)]-180-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(pencilArrow)]];
+            [pencilArrow setUpPencilBounceForiPad:CGSizeMake(60, 60) targetX:15 targetY:-9 rotation:5*M_PI_4];
         }
         else if (IS_IPAD){
             tutorialbackground.translatesAutoresizingMaskIntoConstraints=NO;
@@ -191,7 +198,7 @@
         [self.view addSubview:tutorialbackground];
         
         if(IS_IPHONE){
-            [tutorialbackground setFrame:CGRectMake(10, 70, 300, 180)];
+            [tutorialbackground setFrame:CGRectMake((self.view.frame.size.width - 300)/2, 70, 300, 180)];
         }
         else if (IS_IPAD){
             tutorialbackground.translatesAutoresizingMaskIntoConstraints=NO;
@@ -297,7 +304,7 @@
     if(IS_IPHONE){
         [tutorialbackground setFrame:CGRectMake(30, 70, 240, 100)];
         
-        BouncingPencil *pencilArrow = [[BouncingPencil alloc]initWithFrame:CGRectMake(220, 44, 60, 60)];
+        BouncingPencil *pencilArrow = [[BouncingPencil alloc]initWithFrame:CGRectMake(self.view.frame.size.width - 100, 44, 60, 60)];
         [pencilArrow setTag:2000];
         [pencilArrow setUpPencilBounceFrame:pencilArrow.frame targetX:15 targetY:-9 rotation:5*M_PI_4];
         [self.view addSubview:pencilArrow];
@@ -477,20 +484,22 @@
         [takenLabel setTag:4];
         [cell.contentView addSubview:takenLabel];
         
+        titleLabel.translatesAutoresizingMaskIntoConstraints=NO;
+        taken.translatesAutoresizingMaskIntoConstraints=NO;
+        takenLabel.translatesAutoresizingMaskIntoConstraints=NO;
+        
+        buttonPlus.translatesAutoresizingMaskIntoConstraints=NO;
+        buttonSub.translatesAutoresizingMaskIntoConstraints=NO;
+        coinLabel.translatesAutoresizingMaskIntoConstraints=NO;
+        coinLine.translatesAutoresizingMaskIntoConstraints=NO;
+        coinLine2.translatesAutoresizingMaskIntoConstraints=NO;
+        coinLine3.translatesAutoresizingMaskIntoConstraints=NO;
+        
         if (IS_IPAD) {
             [titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:27]];
             
             
-            titleLabel.translatesAutoresizingMaskIntoConstraints=NO;
-            taken.translatesAutoresizingMaskIntoConstraints=NO;
-            takenLabel.translatesAutoresizingMaskIntoConstraints=NO;
-            
-            buttonPlus.translatesAutoresizingMaskIntoConstraints=NO;
-            buttonSub.translatesAutoresizingMaskIntoConstraints=NO;
-            coinLabel.translatesAutoresizingMaskIntoConstraints=NO;
-            coinLine.translatesAutoresizingMaskIntoConstraints=NO;
-            coinLine2.translatesAutoresizingMaskIntoConstraints=NO;
-            coinLine3.translatesAutoresizingMaskIntoConstraints=NO;
+
             
             //Left part of the table
             [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-65-[titleLabel(300)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(titleLabel)]];
@@ -514,15 +523,38 @@
             
         }
         else if(IS_IPHONE){
-            buttonPlus.frame = CGRectMake(222, 52, 66, 33);
-            buttonSub.frame = CGRectMake(152, 52, 66,33);
-            coinLabel.frame = CGRectMake(152, 10, 136, 38);
-            coinLine.frame = CGRectMake(152, 49, 136, 2);
-            coinLine2.frame = CGRectMake(buttonSub.frame.origin.x+buttonSub.frame.size.width+1, 50, 2, 35);
-            coinLine3.frame = CGRectMake(buttonSub.frame.origin.x, 49-coinLabel.frame.size.height, 2, coinLabel.frame.size.height);
-            titleLabel.frame = CGRectMake(7, 3, 145,35);
-            taken.frame = CGRectMake(13, 39, 12, 12);
-            takenLabel.frame = CGRectMake(29, 35,100,20);
+            
+            
+            //Left part of the table
+            [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-7-[titleLabel(143)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(titleLabel)]];
+            
+            [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-13-[taken(12)]-4-[takenLabel]" options:NSLayoutFormatAlignAllCenterY metrics:nil views:NSDictionaryOfVariableBindings(taken,takenLabel)]];
+            
+//            [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-7-[studentNumberLabel]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(studentNumberLabel)]];
+            
+            [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-3-[titleLabel(35)]-0-[taken(12)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(titleLabel,taken)]];
+            
+            //Right part of the table
+            [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[coinLabel(38)]-0-[coinLine(2)]-3-[buttonSub(33)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(coinLabel,coinLine,buttonSub)]];
+            
+            [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[coinLine(136)]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(coinLine)]];
+            
+            [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[coinLine3(2)]-0-[coinLabel(136)]-0-|" options:NSLayoutFormatAlignAllCenterY metrics:nil views:NSDictionaryOfVariableBindings(coinLine3,coinLabel)]];
+            
+            [coinLine3 addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[coinLine3(38)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(coinLine3)]];
+            
+            [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[buttonSub(66)]-1-[coinLine2(2)]-1-[buttonPlus(66)]-0-|" options:NSLayoutFormatAlignAllCenterY metrics:nil views:NSDictionaryOfVariableBindings(buttonSub,coinLine2,buttonPlus)]];
+            [coinLine2 addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[coinLine2(35)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(coinLine2)]];
+            
+//            buttonPlus.frame = CGRectMake(222, 52, 66, 33);
+//            buttonSub.frame = CGRectMake(152, 52, 66,33);
+//            coinLabel.frame = CGRectMake(152, 10, 136, 38);
+//            coinLine.frame = CGRectMake(152, 49, 136, 2);
+//            coinLine2.frame = CGRectMake(buttonSub.frame.origin.x+buttonSub.frame.size.width+1, 50, 2, 35);
+//            coinLine3.frame = CGRectMake(buttonSub.frame.origin.x, 49-coinLabel.frame.size.height, 2, coinLabel.frame.size.height);
+//            titleLabel.frame = CGRectMake(7, 3, 145,35);
+//            taken.frame = CGRectMake(13, 39, 12, 12);
+//            takenLabel.frame = CGRectMake(29, 35,100,20);
             
         }
         
@@ -599,7 +631,7 @@
         if ((int)[self.checkProgress getTotalProgress] == 1) {
             if (IS_IPHONE) {
                 
-                DemoRateAppView *rateApp = [[DemoRateAppView alloc]initWithFrame:CGRectMake(5,70, 310, 320)];
+                DemoRateAppView *rateApp = [[DemoRateAppView alloc]initWithFrame:CGRectMake((self.view.frame.size.width - 310)/2,70, 310, 320)];
                 [self.view addSubview:rateApp];
                 [rateApp showRatePopUp];
             }
@@ -697,17 +729,13 @@
     }
     else if(IS_IPHONE){
 
-        if (!self.studentMenu || self.studentMenu.frame.origin.x == 320) {
-            //show
-            self.studentMenu = [[MenuTable alloc]initWithFrame:CGRectMake(self.view.frame.size.width, 0, self.view.frame.size.width, self.view.frame.size.height)];
-            [self.studentMenu displayStudentMenu];
+        self.studentMenu = [[MenuTable alloc]initWithFrame:CGRectMake(self.view.frame.size.width, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height)];
+        [self.studentMenu displayStudentMenu];
+        [self.navigationController.view addSubview:self.studentMenu];
         
-            [self.view addSubview:self.studentMenu];
-            
-            [UIView animateWithDuration:0.4 animations:^{
-                [self.studentMenu setFrame:self.view.frame];
-            }];
-        }
+        [UIView animateWithDuration:0.4 animations:^{
+            [self.studentMenu setFrame:self.view.frame];
+        }];
 
     }
     UIImageView *tutorialbackground = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"blackboardBorder"]];
@@ -938,7 +966,7 @@
                 if ((int)[self.checkProgress getTotalProgress] == 1) {
                     if (IS_IPHONE) {
                         
-                        DemoRateAppView *rateApp = [[DemoRateAppView alloc]initWithFrame:CGRectMake(5,70, 310, 320)];
+                DemoRateAppView *rateApp = [[DemoRateAppView alloc]initWithFrame:CGRectMake((self.view.frame.size.width - 310)/2,70, 310, 320)];
                         [self.view addSubview:rateApp];
                         [rateApp showRatePopUp];
                     }
@@ -1275,7 +1303,7 @@
             if ((int)[self.checkProgress getTotalProgress] == 1) {
                 if (IS_IPHONE) {
                     
-                    DemoRateAppView *rateApp = [[DemoRateAppView alloc]initWithFrame:CGRectMake(5,70, 310, 320)];
+                DemoRateAppView *rateApp = [[DemoRateAppView alloc]initWithFrame:CGRectMake((self.view.frame.size.width - 310)/2,70, 310, 320)];
                     [self.view addSubview:rateApp];
                     [rateApp showRatePopUp];
                 }

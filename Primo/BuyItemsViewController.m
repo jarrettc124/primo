@@ -161,7 +161,7 @@
         [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_studentTable]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_studentTable)]];
     }
     else if (IS_IPHONE){
-        [self.studentTable setFrame:CGRectMake(0.0, 64.0, 320.0, self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height-67)];
+        [self.studentTable setFrame:CGRectMake(0.0, 64.0, self.view.frame.size.width, self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height-67)];
     }
 
 }

@@ -34,7 +34,7 @@
     CGRect frame = CGRectMake(0, 0, image.size.width-10, image.size.height-10);
     self.button = [[UIButton alloc] initWithFrame:frame];
     [self.button setBackgroundImage:image forState:UIControlStateNormal];
-    [self.button addTarget:self action:nil forControlEvents:UIControlEventTouchUpInside];
+//    [self.button addTarget:self action:nil forControlEvents:UIControlEventTouchUpInside];
     self.leftBarButton = [[UIBarButtonItem alloc] initWithCustomView:self.button];
     
     
@@ -47,6 +47,7 @@
         [self addSubview:direction];
         
         self.classField = [[UITextField alloc]initWithFrame:CGRectMake((self.frame.size.width/2)-40,direction.frame.origin.y+60,195 ,30)];
+        self.classField.autocorrectionType = UITextAutocorrectionTypeNo;
         [self.classField setAlpha:0];
         self.classField.placeholder = @"Class";
         self.classField.borderStyle = UITextBorderStyleRoundedRect;
@@ -84,6 +85,7 @@
         self.teachEmailField = [[UITextField alloc] initWithFrame:CGRectMake(20, self.usernameField.frame.origin.y+self.usernameField.frame.size.height+5,self.usernameField.frame.size.width, 35)];
         self.teachEmailField.placeholder = @"What's your teacher's email?";
         self.teachEmailField.keyboardType = UIKeyboardTypeEmailAddress;
+        self.teachEmailField.autocorrectionType = UITextAutocorrectionTypeNo;
         self.teachEmailField.borderStyle = UITextBorderStyleRoundedRect;
         [self.teachEmailField addTarget:self action:@selector(enableOrDisableDoneButton) forControlEvents:UIControlEventEditingChanged];
         self.teachEmailField.delegate = self;

@@ -34,26 +34,29 @@
         _directLabel.font = [UIFont fontWithName:@"TravelingTypewriter" size:15];
         [self.linedPaperBackground addSubview:_directLabel];
         
-        if (IS_IPAD) {
-            //no holes for ipad
-            [self.holesLinedPaperBackground setImage:[UIImage imageNamed:@"linedPaper"]];
+//        if (IS_IPAD) {
+            [self.holesLinedPaperBackground setImage:[UIImage imageNamed:@"linedPaperHole"]];
+        self.holesLinedPaperBackground.contentMode = UIViewContentModeScaleAspectFill;
             self.linedPaperBackground.translatesAutoresizingMaskIntoConstraints=NO;
             self.holesLinedPaperBackground.translatesAutoresizingMaskIntoConstraints=NO;
-            
+        self.directLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        
             [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[_linedPaperBackground(40)]-0-[_holesLinedPaperBackground(40)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_linedPaperBackground,_holesLinedPaperBackground)]];
             [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_linedPaperBackground]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_linedPaperBackground)]];
             [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_holesLinedPaperBackground]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_holesLinedPaperBackground)]];
+        
+        
+        [self.linedPaperBackground addConstraint:[NSLayoutConstraint constraintWithItem:self.directLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.linedPaperBackground attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
+        [self.linedPaperBackground addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[_directLabel]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_directLabel)]];
+        
             
-            [_directLabel setFrame:CGRectMake(200,2, 320, 40)];
-            
-            
-        }
-        else if (IS_IPHONE){
-            [self.linedPaperBackground setFrame:CGRectMake(frame.origin.x, frame.origin.y-64, frame.size.width, frame.size.height/2)];
-            [self.holesLinedPaperBackground setImage:[UIImage imageNamed:@"linedPaperHole"]];
-            [self.holesLinedPaperBackground setFrame:CGRectMake(frame.origin.x, frame.origin.y+self.linedPaperBackground.frame.size.height-64, frame.size.width, frame.size.height/2)];
-            [_directLabel setFrame:CGRectMake(self.linedPaperBackground.frame.origin.x+66,2, 220, 40)];
-        }
+//        }
+//        else if (IS_IPHONE){
+//            [self.linedPaperBackground setFrame:CGRectMake(frame.origin.x, frame.origin.y-64, frame.size.width, frame.size.height/2)];
+//            [self.holesLinedPaperBackground setImage:[UIImage imageNamed:@"linedPaperHole"]];
+//            [self.holesLinedPaperBackground setFrame:CGRectMake(frame.origin.x, frame.origin.y+self.linedPaperBackground.frame.size.height-64, frame.size.width, frame.size.height/2)];
+//            [_directLabel setFrame:CGRectMake(self.linedPaperBackground.frame.origin.x+66,2, 220, 40)];
+//        }
         
         [self setupCoinViews];
     }

@@ -605,7 +605,7 @@
         if ((int)[self.studentProgress getTotalProgress] == 1) {
             if (IS_IPHONE) {
                 
-                DemoRateAppView *rateApp = [[DemoRateAppView alloc]initWithFrame:CGRectMake(5,70, 310, 320)];
+                DemoRateAppView *rateApp = [[DemoRateAppView alloc]initWithFrame:CGRectMake((self.view.frame.size.width - 310)/2,70, 310, 320)];
                 [self.view addSubview:rateApp];
                 [rateApp showRatePopUp];
             }

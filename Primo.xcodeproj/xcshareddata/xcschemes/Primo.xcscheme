@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C455336718F49EBA00520B99"
-               BuildableName = "Primo.app"
-               BlueprintName = "Primo"
+               BuildableName = "LCEdu.app"
+               BlueprintName = "LCEdu"
                ReferencedContainer = "container:Primo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,8 +43,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C455336718F49EBA00520B99"
-            BuildableName = "Primo.app"
-            BlueprintName = "Primo"
+            BuildableName = "LCEdu.app"
+            BlueprintName = "LCEdu"
             ReferencedContainer = "container:Primo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -66,8 +66,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C455336718F49EBA00520B99"
-            BuildableName = "Primo.app"
-            BlueprintName = "Primo"
+            BuildableName = "LCEdu.app"
+            BlueprintName = "LCEdu"
             ReferencedContainer = "container:Primo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -85,8 +85,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C455336718F49EBA00520B99"
-            BuildableName = "Primo.app"
-            BlueprintName = "Primo"
+            BuildableName = "LCEdu.app"
+            BlueprintName = "LCEdu"
             ReferencedContainer = "container:Primo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

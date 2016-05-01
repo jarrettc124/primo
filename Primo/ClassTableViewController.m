@@ -572,14 +572,13 @@
         _isEmpty=YES;
     }
     
-    
     UIImageView *tutorialbackground = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"blackboardBorder"]];
     [tutorialbackground setTag:1000];
     [tutorialbackground setAlpha:0];
     [self.view addSubview:tutorialbackground];
 
     tutorialbackground.translatesAutoresizingMaskIntoConstraints=NO;
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[tutorialbackground(280)]-100-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(tutorialbackground)]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[tutorialbackground(280)]-20-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(tutorialbackground)]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-100-[tutorialbackground(170)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(tutorialbackground)]];
         
         
@@ -821,7 +820,6 @@
                     [self.reachabilityLabel removeFromSuperview];
                     self.reachabilityLabel=nil;
                 }
-                
                 if ([rows count]==0){
                     
                     if (_teacherObject !=nil) {

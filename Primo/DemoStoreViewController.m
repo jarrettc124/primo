@@ -279,22 +279,22 @@
     [tutorialbackground setAlpha:0];
     [self.closedBackground addSubview:tutorialbackground];
     
-    if (IS_IPHONE) {
-        [tutorialbackground setFrame:CGRectMake(0, 240, 320, 180)];
-        
-        if ([self.userType isEqualToString:@"Teacher"]) {
-            BouncingPencil *pencilArrow = [[BouncingPencil alloc]initWithFrame:CGRectMake(220, 44, 60, 60)];
-            [pencilArrow setTag:2000];
-            [pencilArrow setUpPencilBounceFrame:pencilArrow.frame targetX:15 targetY:-9 rotation:5*M_PI_4];
-            [self.closedBackground addSubview:pencilArrow];
-        }
-        
-        [self.closedBackground setFrame:self.view.frame];
-        [directionLabel setFrame:CGRectMake(30, 90, 280,100)];
-        
-    }
-    else if (IS_IPAD){
-        
+//    if (IS_IPHONE) {
+//        [tutorialbackground setFrame:CGRectMake(0, 240, 320, 180)];
+//        
+//        if ([self.userType isEqualToString:@"Teacher"]) {
+//            BouncingPencil *pencilArrow = [[BouncingPencil alloc]initWithFrame:CGRectMake(220, 44, 60, 60)];
+//            [pencilArrow setTag:2000];
+//            [pencilArrow setUpPencilBounceFrame:pencilArrow.frame targetX:15 targetY:-9 rotation:5*M_PI_4];
+//            [self.closedBackground addSubview:pencilArrow];
+//        }
+//        
+//        [self.closedBackground setFrame:self.view.frame];
+//        [directionLabel setFrame:CGRectMake(30, 90, 280,100)];
+//        
+//    }
+//    else if (IS_IPAD){
+//        
         self.closedBackground.translatesAutoresizingMaskIntoConstraints=NO;
         directionLabel.translatesAutoresizingMaskIntoConstraints=NO;
         tutorialbackground.translatesAutoresizingMaskIntoConstraints=NO;
@@ -305,7 +305,8 @@
         [self.closedBackground addConstraint:[NSLayoutConstraint constraintWithItem:directionLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.closedBackground attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
         
         [self.closedBackground addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-90-[directionLabel]-100-[tutorialbackground]" options:NSLayoutFormatAlignAllCenterX metrics:nil views:NSDictionaryOfVariableBindings(directionLabel,tutorialbackground)]];
-        
+    [self.closedBackground addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-10-[tutorialbackground]-10-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:NSDictionaryOfVariableBindings(tutorialbackground)]];
+
         if ([self.userType isEqualToString:@"Teacher"]) {
             
             //Set bouncing Pencil
@@ -319,7 +320,7 @@
             [self.closedBackground addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[pencilArrow(60)]-50-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(pencilArrow)]];
             [pencilArrow setUpPencilBounceForiPad:CGSizeMake(60, 60) targetX:15 targetY:-9 rotation:5*M_PI_4];
         }
-    }
+//    }
     
     CGAffineTransform transform = CGAffineTransformMakeScale(0.9, 0.9);
     [tutorialbackground.layer setAnchorPoint:CGPointMake(0.5, 0.5)];
@@ -404,7 +405,7 @@
                 if ((int)[self.teacherProgress getTotalProgress] == 1) {
                     if (IS_IPHONE) {
                         
-                        DemoRateAppView *rateApp = [[DemoRateAppView alloc]initWithFrame:CGRectMake(5,70, 310, 320)];
+                DemoRateAppView *rateApp = [[DemoRateAppView alloc]initWithFrame:CGRectMake((self.view.frame.size.width - 310)/2,70, 310, 320)];
                         [self.view addSubview:rateApp];
                         [rateApp showRatePopUp];
                     }
@@ -488,16 +489,11 @@
         [buyButton setTag:500];
         [cell.contentView addSubview:buyButton];
         
-        if (IS_IPAD) {
-            buyButton.translatesAutoresizingMaskIntoConstraints=NO;
+        buyButton.translatesAutoresizingMaskIntoConstraints=NO;
             [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-7-[buyButton(30)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(buyButton)]];
             [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[buyButton(74)]-40-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(buyButton)]];
             
-        }
-        else if (IS_IPHONE){
-            buyButton.frame = CGRectMake(238, 7, 74, 30);
-            
-        }
+
         
     }
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
@@ -593,7 +589,7 @@
             if ((int)[self.studentProgress getTotalProgress] == 1) {
                 if (IS_IPHONE) {
                     
-                    DemoRateAppView *rateApp = [[DemoRateAppView alloc]initWithFrame:CGRectMake(5,70, 310, 320)];
+                DemoRateAppView *rateApp = [[DemoRateAppView alloc]initWithFrame:CGRectMake((self.view.frame.size.width - 310)/2,70, 310, 320)];
                     [self.view addSubview:rateApp];
                     [rateApp showRatePopUp];
                 }

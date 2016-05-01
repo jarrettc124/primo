@@ -131,7 +131,8 @@
             }
             
             UITextField *tf = [[UITextField alloc] initWithFrame:CGRectMake(200, 13, 250, 30)];
-            tf.placeholder=[NSString stringWithFormat:@"Student %d", self.studentNumber];
+            tf.autocorrectionType = UITextAutocorrectionTypeNo;
+            tf.placeholder=[NSString stringWithFormat:@"Student %ld", (long)self.studentNumber];
             tf.tag = self.studentNumber;
             [self.studentNames addObject:tf];
             tf.delegate = self;
@@ -343,7 +344,8 @@
         [self.scroller addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[imageView(==_scroller)]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(imageView,_scroller)]];
         
         UITextField *tf = [[UITextField alloc] initWithFrame:CGRectMake(200, 13, 250, 30)];
-        tf.placeholder=[NSString stringWithFormat:@"Student %d", self.studentNumber];
+        tf.placeholder=[NSString stringWithFormat:@"Student %ld", (long)self.studentNumber];
+        tf.autocorrectionType = UITextAutocorrectionTypeNo;
         [tf setFont:[UIFont fontWithName:@"TravelingTypewriter" size:20]];
         tf.tag = self.studentNumber;
         [self.studentNames addObject:tf];
@@ -570,7 +572,8 @@
     [imageView setImage:linedImage];
     
     UITextField *tf = [[UITextField alloc] initWithFrame:CGRectMake(72, 13, 250, 30)];
-    tf.placeholder=[NSString stringWithFormat:@"Student %d", self.studentNumber];
+    tf.autocorrectionType = UITextAutocorrectionTypeNo;
+    tf.placeholder=[NSString stringWithFormat:@"Student %ld", (long)self.studentNumber];
     [tf setFont:[UIFont fontWithName:@"TravelingTypewriter" size:20]];
     tf.tag = self.studentNumber;
     [self.studentNames addObject:tf];

@@ -74,7 +74,7 @@
         UIImageView *background = [[UIImageView alloc]initWithFrame:self.menuViewTable.frame];
         [background setImage:[UIImage imageNamed:@"blackboardBackground"]];
         [self.menuViewTable setBackgroundView:background];
-        background.contentMode = UIViewContentModeRight;
+        background.contentMode = UIViewContentModeScaleAspectFill;
         [self addSubview:_menuViewTable];
         _menuViewTable.tableHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.menuViewTable.frame.size.width, 70)];
         label.text = @"Teacher Menu";
@@ -127,8 +127,7 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     //selectedCell is nill first
-    NSString *selectedCell = nil;
-    selectedCell = [_menuArray objectAtIndex:indexPath.row];
+    NSString *selectedCell = [_menuArray objectAtIndex:indexPath.row];
     self.menuOption = selectedCell;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"selectionAction" object:nil];
 

@@ -227,7 +227,7 @@
 		C4514C8919116C2300424D23 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+ImageEffects.m"; path = "Primo/UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		C4514C8B1911B62E00424D23 /* RestartCoinsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestartCoinsViewController.h; sourceTree = "<group>"; };
 		C4514C8C1911B62E00424D23 /* RestartCoinsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = RestartCoinsViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		C455336818F49EBA00520B99 /* Primo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Primo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C455336818F49EBA00520B99 /* LCEdu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LCEdu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C455336B18F49EBA00520B99 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C455336D18F49EBA00520B99 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C455336F18F49EBA00520B99 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -532,7 +532,7 @@
 		C455336918F49EBA00520B99 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C455336818F49EBA00520B99 /* Primo.app */,
+				C455336818F49EBA00520B99 /* LCEdu.app */,
 				C455338918F49EBA00520B99 /* PrimoTests.xctest */,
 			);
 			name = Products;
@@ -723,9 +723,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C455336718F49EBA00520B99 /* Primo */ = {
+		C455336718F49EBA00520B99 /* LCEdu */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C455339A18F49EBA00520B99 /* Build configuration list for PBXNativeTarget "Primo" */;
+			buildConfigurationList = C455339A18F49EBA00520B99 /* Build configuration list for PBXNativeTarget "LCEdu" */;
 			buildPhases = (
 				C455336418F49EBA00520B99 /* Sources */,
 				C455336518F49EBA00520B99 /* Frameworks */,
@@ -735,9 +735,9 @@
 			);
 			dependencies = (
 			);
-			name = Primo;
+			name = LCEdu;
 			productName = Primo;
-			productReference = C455336818F49EBA00520B99 /* Primo.app */;
+			productReference = C455336818F49EBA00520B99 /* LCEdu.app */;
 			productType = "com.apple.product-type.application";
 		};
 		C455338818F49EBA00520B99 /* PrimoTests */ = {
@@ -788,7 +788,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C455336718F49EBA00520B99 /* Primo */,
+				C455336718F49EBA00520B99 /* LCEdu */,
 				C455338818F49EBA00520B99 /* PrimoTests */,
 			);
 		};
@@ -935,7 +935,7 @@
 /* Begin PBXTargetDependency section */
 		C455338F18F49EBA00520B99 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C455336718F49EBA00520B99 /* Primo */;
+			target = C455336718F49EBA00520B99 /* LCEdu */;
 			targetProxy = C455338E18F49EBA00520B99 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1056,7 +1056,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pixelandprocessor.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1078,7 +1078,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pixelandprocessor.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1137,7 +1137,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C455339A18F49EBA00520B99 /* Build configuration list for PBXNativeTarget "Primo" */ = {
+		C455339A18F49EBA00520B99 /* Build configuration list for PBXNativeTarget "LCEdu" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C455339B18F49EBA00520B99 /* Debug */,

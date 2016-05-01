@@ -237,28 +237,28 @@
     }
     [imageView setImage:linedImage];
     
-    //textfield itemname
-    UITextField *storeItem = [[UITextField alloc] initWithFrame:CGRectMake(64, 13, 120, 30)]; //change
-    storeItem.placeholder=[NSString stringWithFormat:@"Item %ld", (long)count+1];
-    storeItem.delegate = self;
-    storeItem.tag = count +1;
-    [itemArray addObject:storeItem];
-    
-    [imageView addSubview:storeItem];
-    
-    //add coinpicture
-    UIImageView *coinImage = [[UIImageView alloc]initWithFrame:CGRectMake(212, 10, 30, 30)];
-    [coinImage setImage:[UIImage imageNamed:@"goldCoin"]];
-    [imageView addSubview:coinImage];
-    
     //textfield itemcost
-    UITextField *storeCost = [[UITextField alloc] initWithFrame:CGRectMake(244, 12, 65, 30)]; //change
+    UITextField *storeCost = [[UITextField alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 73, 12, 65, 30)];
     storeCost.placeholder=@"Cost";
     storeCost.keyboardType=UIKeyboardTypeNumberPad;
     storeCost.tag = count+1;
     [costArray addObject:storeCost];
     storeCost.delegate = self;
     [imageView addSubview:storeCost];
+    
+    //add coinpicture
+    UIImageView *coinImage = [[UIImageView alloc]initWithFrame:CGRectMake(storeCost.frame.origin.x-30, 10, 30, 30)];
+    [coinImage setImage:[UIImage imageNamed:@"goldCoin"]];
+    [imageView addSubview:coinImage];
+    
+    //textfield itemname
+    UITextField *storeItem = [[UITextField alloc] initWithFrame:CGRectMake(73, 13, coinImage.frame.origin.x - 79, 30)]; //change
+    storeItem.placeholder=[NSString stringWithFormat:@"Item %ld", (long)count+1];
+    storeItem.delegate = self;
+    storeItem.tag = count +1;
+    [itemArray addObject:storeItem];
+    
+    [imageView addSubview:storeItem];
     
 }
 

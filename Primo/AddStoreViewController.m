@@ -190,7 +190,7 @@
                 [self createStoreItemArray:self.storeItemArray createStoreCostArray:self.storeCostArray scrollerToAdd:self.scroller yPosition:self.y count:_i];
                 
                 //make scroller bigger
-                self.scroller.contentSize = CGSizeMake(320,(_scroller.contentSize.height+40));
+                self.scroller.contentSize = CGSizeMake(self.view.frame.size.width,(_scroller.contentSize.height+40));
                 
             }
             _y+=40;
@@ -198,7 +198,7 @@
         }//end of for loop
         
         //for the add button
-        _scroller.contentSize = CGSizeMake(320,(_scroller.contentSize.height)+120);
+        _scroller.contentSize = CGSizeMake(self.view.frame.size.width,(_scroller.contentSize.height)+120);
         //addButton
         [self createAddButtonAtTheEndscrollerToAdd:self.storeItemArray scrollerToAdd:self.scroller yPosition:self.y];
     }
@@ -241,22 +241,9 @@
     }
     [imageView setImage:linedImage];
     
-    //textfield itemname
-    UITextField *storeItem = [[UITextField alloc] initWithFrame:CGRectMake(64, 13, 120, 30)]; //change
-    storeItem.placeholder=[NSString stringWithFormat:@"Item %ld", (long)count+1];
-    storeItem.delegate = self;
-    storeItem.tag = count +1;
-    [itemArray addObject:storeItem];
-    
-    [imageView addSubview:storeItem];
-    
-    //add coinpicture
-    UIImageView *coinImage = [[UIImageView alloc]initWithFrame:CGRectMake(212, 10, 30, 30)];
-    [coinImage setImage:[UIImage imageNamed:@"goldCoin"]];
-    [imageView addSubview:coinImage];
     
     //textfield itemcost
-    UITextField *storeCost = [[UITextField alloc] initWithFrame:CGRectMake(244, 12, 65, 30)]; //change
+    UITextField *storeCost = [[UITextField alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 73, 12, 65, 30)];
     storeCost.placeholder=@"Cost";
     storeCost.keyboardType=UIKeyboardTypeNumberPad;
     storeCost.tag = count+1;
@@ -264,6 +251,20 @@
     storeCost.delegate = self;
     [imageView addSubview:storeCost];
     
+    //add coinpicture
+    UIImageView *coinImage = [[UIImageView alloc]initWithFrame:CGRectMake(storeCost.frame.origin.x-30, 10, 30, 30)];
+    [coinImage setImage:[UIImage imageNamed:@"goldCoin"]];
+    [imageView addSubview:coinImage];
+    
+    //textfield itemname
+    UITextField *storeItem = [[UITextField alloc] initWithFrame:CGRectMake(73, 13, coinImage.frame.origin.x - 79, 30)]; //change
+    storeItem.placeholder=[NSString stringWithFormat:@"Item %ld", (long)count+1];
+    storeItem.delegate = self;
+    storeItem.tag = count +1;
+    [itemArray addObject:storeItem];
+    
+    [imageView addSubview:storeItem];
+
 }
 
 -(void)createAddButtonAtTheEndscrollerToAdd:(NSMutableArray*)itemArray scrollerToAdd:(UIScrollView*)scrollView yPosition:(NSInteger)position{

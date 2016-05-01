@@ -60,7 +60,7 @@
     [self.signUpButton addTarget:self action:@selector(buttonActions:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.signUpButton];
     
-    UIImage *logoImage = [UIImage imageNamed:@"logo"];
+    UIImage *logoImage = [UIImage imageNamed:@"lcicon"];
     UIImageView *logoView = [[UIImageView alloc]init];
     [logoView setImage:logoImage];
     logoView.contentMode=UIViewContentModeScaleAspectFill;
@@ -68,7 +68,7 @@
     
     UILabel *manageClassLabel = [UILabel new];
     [manageClassLabel setTextColor:[UIColor whiteColor]];
-    [manageClassLabel setText:@"Primo helps you manage your class with a touch of a button!"];
+    [manageClassLabel setText:@"LCEdu helps you manage your class with a touch of a button!"];
     [manageClassLabel setNumberOfLines:0];
     [manageClassLabel setTextAlignment:NSTextAlignmentCenter];
     [self.view addSubview:manageClassLabel];
@@ -116,7 +116,6 @@
         [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_backgroundIntro]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_backgroundIntro)]];
         [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_backgroundIntro]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_backgroundIntro)]];
         
-
         
         NSArray *signUpConstraintsH = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[_signUpButton(60)]"
                                                                               options:0
@@ -127,17 +126,17 @@
         
         NSArray *buttonVertical = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[_loginButton(60)]-100-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_loginButton)];
         
+        
         NSArray *buttonsHorizontal = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-30-[_loginButton(==_signUpButton)]-20-[_signUpButton]-30-|"
                                                                         options:NSLayoutFormatAlignAllTop
                                                                         metrics:nil
                                                                           views:NSDictionaryOfVariableBindings(_loginButton,_signUpButton)];
 
         
-        [self.view addConstraints:buttonsHorizontal];
-        [self.view addConstraints:buttonVertical];
         
-
-
+        [self.view addConstraints:buttonsHorizontal];
+        
+        [self.view addConstraints:buttonVertical];
         
         //logo Position
         logoView.translatesAutoresizingMaskIntoConstraints=NO;
@@ -156,39 +155,48 @@
         
     }
     else if (IS_IPHONE){
+        
         //Set iphone using frames
         NSMutableAttributedString *attributeTouchString = [[NSMutableAttributedString alloc] initWithString:manageClassLabel.text];
+        
         [attributeTouchString addAttribute:NSFontAttributeName
                                      value:[UIFont fontWithName:@"Eraser" size:18]
                                      range:NSMakeRange(41,5)];
         
-        [manageClassLabel setAttributedText:attributeTouchString];
         
+        [manageClassLabel setAttributedText:attributeTouchString];
         [learnMoreButton.titleLabel setFont:[UIFont fontWithName:@"Eraser" size:19]];
         [demoClassButton.titleLabel setFont:[UIFont fontWithName:@"Eraser" size:19]];
-
         
         [self.backgroundIntro setFrame:self.view.frame];
         
         if (self.view.frame.size.height<568) {
+            
             //Short iphone
+            
             [self.loginButton setFrame:CGRectMake(self.view.frame.origin.x+10,self.view.frame.size.height-75,(self.view.frame.size.width/2)-15, 45)];
+            
             [self.signUpButton setFrame:CGRectMake((self.view.frame.size.width/2)+5,self.view.frame.size.height-75,(self.view.frame.size.width/2)-15, 45)];
-            [logoView setFrame:CGRectMake(self.view.frame.size.width/2-(logoImage.size.width/2)+20, 35, logoImage.size.width-40, logoImage.size.height-40)];
+            
+            [logoView setFrame:CGRectMake(self.view.frame.size.width/2-(logoImage.size.width/2)+20, 35, logoImage.size.width-150, logoImage.size.height-150)];
+            
             [manageClassLabel setFrame:CGRectMake(10, logoView.frame.origin.y+logoView.frame.size.height+30, self.view.frame.size.width-20, 60)];
-            
-            
+
         }
         else{
+            
             //Tall iphone
-           
+            
             [self.loginButton setFrame:CGRectMake(self.view.frame.origin.x+10,self.view.frame.size.height-90,(self.view.frame.size.width/2)-15, 45)];
+            
             [self.signUpButton setFrame:CGRectMake((self.view.frame.size.width/2)+5,self.view.frame.size.height-90,(self.view.frame.size.width/2)-15, 45)];
-            [logoView setFrame:CGRectMake(self.view.frame.size.width/2-(logoImage.size.width/2)+25, 35, logoImage.size.width-50, logoImage.size.height-50)];
+            
+            [logoView setFrame:CGRectMake((self.view.frame.size.width - (logoImage.size.width-150))/2, 50, logoImage.size.width-150, logoImage.size.height-150)];
             
             [manageClassLabel setFrame:CGRectMake(10, logoView.frame.origin.y+logoView.frame.size.height+5, self.view.frame.size.width-20, 60)];
             
             [learnMoreButton setFrame:CGRectMake(self.view.frame.size.width/2-100, manageClassLabel.frame.origin.y+60, 200, 30)];
+            
             [demoClassButton setFrame:CGRectMake(self.view.frame.size.width/2-150, self.loginButton.frame.origin.y-50, 300, 30)];
 
         }

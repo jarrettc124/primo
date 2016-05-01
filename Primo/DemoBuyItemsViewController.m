@@ -132,7 +132,7 @@
         [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_studentTable]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_studentTable)]];
     }
     else if (IS_IPHONE){
-        [self.studentTable setFrame:CGRectMake(0.0, 64.0, 320.0, self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height-67)];
+        [self.studentTable setFrame:CGRectMake(0.0, 64.0, self.view.frame.size.width, self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height-67)];
     }
     
 }
@@ -177,7 +177,7 @@
         if ((int)[teacherProgress getTotalProgress] == 1) {
             if (IS_IPHONE) {
                 
-                DemoRateAppView *rateApp = [[DemoRateAppView alloc]initWithFrame:CGRectMake(5,70, 310, 320)];
+                DemoRateAppView *rateApp = [[DemoRateAppView alloc]initWithFrame:CGRectMake((self.view.frame.size.width - 310)/2,70, 310, 320)];
                 [self.view addSubview:rateApp];
                 [rateApp showRatePopUp];
             }

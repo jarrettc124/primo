@@ -110,7 +110,7 @@
     [self.view addSubview:_studentTable];
     [self.studentTable addSubview:self.refreshControl];
     
-    if (IS_IPAD) {
+//    if (IS_IPAD) {
         toolbarBackground.translatesAutoresizingMaskIntoConstraints=NO;
         self.studentTable.translatesAutoresizingMaskIntoConstraints=NO;
         
@@ -125,11 +125,11 @@
         [self.view addConstraints:self.pinStudentTableToTop];
         
 
-    }
-    else if (IS_IPHONE){
-        [toolbarBackground setFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
-        [self.studentTable setFrame:CGRectMake(0.0,64, 320.0, self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height-67)];
-    }
+//    }
+//    else if (IS_IPHONE){
+//        [toolbarBackground setFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
+//        [self.studentTable setFrame:CGRectMake(0.0,64, 320.0, self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height-67)];
+//    }
     _classObj = [ClassObject findClassObjectInCoreWithTeacherId:objId className:self.className inManagedObjectContext:_managedObjectContext];
     [self updateTableFromDatabaseIntoCore];
 }
@@ -282,20 +282,24 @@
         [studentNumberLabel setTag:5];
         [cell.contentView addSubview:studentNumberLabel];
         
+        
+        
+        [titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:27]];
+        
+        titleLabel.translatesAutoresizingMaskIntoConstraints=NO;
+        taken.translatesAutoresizingMaskIntoConstraints=NO;
+        takenLabel.translatesAutoresizingMaskIntoConstraints=NO;
+        studentNumberLabel.translatesAutoresizingMaskIntoConstraints=NO;
+        
+        buttonPlus.translatesAutoresizingMaskIntoConstraints=NO;
+        buttonSub.translatesAutoresizingMaskIntoConstraints=NO;
+        coinLabel.translatesAutoresizingMaskIntoConstraints=NO;
+        coinLine.translatesAutoresizingMaskIntoConstraints=NO;
+        coinLine2.translatesAutoresizingMaskIntoConstraints=NO;
+        coinLine3.translatesAutoresizingMaskIntoConstraints=NO;
+        
         if (IS_IPAD) {
-            [titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:27]];
-            
-            titleLabel.translatesAutoresizingMaskIntoConstraints=NO;
-            taken.translatesAutoresizingMaskIntoConstraints=NO;
-            takenLabel.translatesAutoresizingMaskIntoConstraints=NO;
-            studentNumberLabel.translatesAutoresizingMaskIntoConstraints=NO;
-            
-            buttonPlus.translatesAutoresizingMaskIntoConstraints=NO;
-            buttonSub.translatesAutoresizingMaskIntoConstraints=NO;
-            coinLabel.translatesAutoresizingMaskIntoConstraints=NO;
-            coinLine.translatesAutoresizingMaskIntoConstraints=NO;
-            coinLine2.translatesAutoresizingMaskIntoConstraints=NO;
-            coinLine3.translatesAutoresizingMaskIntoConstraints=NO;
+
             
             //Left part of the table
             [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-65-[titleLabel(300)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(titleLabel)]];
@@ -320,17 +324,40 @@
             
         }
         else if(IS_IPHONE){
-            buttonPlus.frame = CGRectMake(222, 52, 66, 33);
-            buttonSub.frame = CGRectMake(152, 52, 66,33);
-            coinLabel.frame = CGRectMake(152, 10, 136, 38);
-            coinLine.frame = CGRectMake(152, 49, 136, 2);
-            coinLine2.frame = CGRectMake(buttonSub.frame.origin.x+buttonSub.frame.size.width+1, 50, 2, 35);
-            coinLine3.frame = CGRectMake(buttonSub.frame.origin.x, 49-coinLabel.frame.size.height, 2, coinLabel.frame.size.height);
             
-            titleLabel.frame = CGRectMake(7, 3, 145,35);
-            studentNumberLabel.frame =CGRectMake(7,titleLabel.frame.origin.y+35, 100, 20);
-            taken.frame = CGRectMake(13, studentNumberLabel.frame.origin.y+20+3, 12, 12);
-            takenLabel.frame = CGRectMake(29,studentNumberLabel.frame.origin.y+20,100,18);
+            
+            //Left part of the table
+            [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-7-[titleLabel(143)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(titleLabel)]];
+            
+            [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-13-[taken(12)]-4-[takenLabel]" options:NSLayoutFormatAlignAllCenterY metrics:nil views:NSDictionaryOfVariableBindings(taken,takenLabel)]];
+            
+            [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-7-[studentNumberLabel]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(studentNumberLabel)]];
+            
+            [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-3-[titleLabel(35)]-0-[studentNumberLabel(20)]-[taken(12)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(titleLabel,studentNumberLabel,taken)]];
+            
+            //Right part of the table
+            [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[coinLabel(38)]-0-[coinLine(2)]-3-[buttonSub(33)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(coinLabel,coinLine,buttonSub)]];
+            
+            [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[coinLine(136)]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(coinLine)]];
+            
+            [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[coinLine3(2)]-0-[coinLabel(136)]-0-|" options:NSLayoutFormatAlignAllCenterY metrics:nil views:NSDictionaryOfVariableBindings(coinLine3,coinLabel)]];
+            
+            [coinLine3 addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[coinLine3(38)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(coinLine3)]];
+            
+            [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[buttonSub(66)]-1-[coinLine2(2)]-1-[buttonPlus(66)]-0-|" options:NSLayoutFormatAlignAllCenterY metrics:nil views:NSDictionaryOfVariableBindings(buttonSub,coinLine2,buttonPlus)]];
+            [coinLine2 addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[coinLine2(35)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(coinLine2)]];
+            
+//            buttonPlus.frame = CGRectMake(222, 52, 66, 33);
+//            buttonSub.frame = CGRectMake(152, 52, 66,33);
+//            coinLabel.frame = CGRectMake(152, 10, 136, 38);
+//            coinLine.frame = CGRectMake(152, 49, 136, 2);
+//            coinLine2.frame = CGRectMake(buttonSub.frame.origin.x+buttonSub.frame.size.width+1, 50, 2, 35);
+//            coinLine3.frame = CGRectMake(buttonSub.frame.origin.x, 49-coinLabel.frame.size.height, 2, coinLabel.frame.size.height);
+//            
+//            titleLabel.frame = CGRectMake(7, 3, 145,35);
+//            studentNumberLabel.frame =CGRectMake(7,titleLabel.frame.origin.y+35, 100, 20);
+//            taken.frame = CGRectMake(13, studentNumberLabel.frame.origin.y+20+3, 12, 12);
+//            takenLabel.frame = CGRectMake(29,studentNumberLabel.frame.origin.y+20,100,18);
         }
 
     }
@@ -965,7 +992,7 @@
     [self.manageCoinToolbarSelection setItems:barButtonArray animated:NO];
     [self.view insertSubview:self.manageCoinToolbarSelection belowSubview:self.studentTable];
     
-    if (IS_IPAD) {
+//    if (IS_IPAD) {
         self.askCoinView = [[manageCoinView alloc]init];
         self.askCoinView.teacherName=self.nameOfTeacher;
         self.askCoinView.className = self.className;
@@ -973,7 +1000,7 @@
         
         self.askCoinView.translatesAutoresizingMaskIntoConstraints=NO;
         self.manageCoinToolbarSelection.translatesAutoresizingMaskIntoConstraints=NO;
-        
+    self.askCoinView.backgroundColor = [UIColor redColor];
         [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-64-[_askCoinView(80)]-0-[_manageCoinToolbarSelection(44)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_askCoinView,_manageCoinToolbarSelection)]];
         [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_askCoinView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_askCoinView)]];
         [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_manageCoinToolbarSelection]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_manageCoinToolbarSelection)]];
@@ -989,20 +1016,20 @@
         } completion:^(BOOL finished) {
         }];
         
-    }
-    else if (IS_IPHONE){
-        
-        self.askCoinView = [[manageCoinView alloc]initWithFrame:CGRectMake(self.view.frame.origin.x, 64, self.view.frame.size.width,80)];
-        self.askCoinView.teacherName=self.nameOfTeacher;
-        self.askCoinView.className = self.className;
-        [self.view insertSubview:self.askCoinView belowSubview:self.studentTable];
-        [self.manageCoinToolbarSelection setFrame:CGRectMake(self.view.frame.origin.x, self.askCoinView.frame.origin.y+self.askCoinView.frame.size.height,self.view.frame.size.width,44)];
-        
-        [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-            self.studentTable.frame=CGRectMake(self.studentTable.frame.origin.x,self.studentTable.frame.origin.y+80+44, self.studentTable.frame.size.width,self.studentTable.frame.size.height-80-44);
-        } completion:^(BOOL finished) {
-        }];
-    }
+//    }
+//    else if (IS_IPHONE){
+//        
+//        self.askCoinView = [[manageCoinView alloc]initWithFrame:CGRectMake(self.view.frame.origin.x, 64, self.view.frame.size.width,80)];
+//        self.askCoinView.teacherName=self.nameOfTeacher;
+//        self.askCoinView.className = self.className;
+//        [self.view insertSubview:self.askCoinView belowSubview:self.studentTable];
+//        [self.manageCoinToolbarSelection setFrame:CGRectMake(self.view.frame.origin.x, self.askCoinView.frame.origin.y+self.askCoinView.frame.size.height,self.view.frame.size.width,44)];
+//        
+//        [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+//            self.studentTable.frame=CGRectMake(self.studentTable.frame.origin.x,self.studentTable.frame.origin.y+80+44, self.studentTable.frame.size.width,self.studentTable.frame.size.height-80-44);
+//        } completion:^(BOOL finished) {
+//        }];
+//    }
 
     
 }
@@ -1329,7 +1356,7 @@
     if ([self.studentMenu.menuOption isEqualToString:@"Manage Coins"]) {
         
         [self.askCoinView.coinsField resignFirstResponder];
-        if (IS_IPAD) {
+//        if (IS_IPAD) {
             [self.view layoutIfNeeded];
             [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 [self.view removeConstraints:_pinStudentTableDown];
@@ -1339,19 +1366,19 @@
             }];
             
             
-        }
-        else if (IS_IPHONE){
-            [self.askCoinView.coinsField resignFirstResponder];
-
-            [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-                
-                self.studentTable.frame=CGRectMake(self.studentTable.frame.origin.x,self.studentTable.frame.origin.y-80-44, self.studentTable.frame.size.width,self.studentTable.frame.size.height+80+44);
-            } completion:^(BOOL finished) {
-                [self.askCoinView removeFromSuperview];
-                self.askCoinView =nil;
-            }];
-            
-        }
+//        }
+//        else if (IS_IPHONE){
+//            [self.askCoinView.coinsField resignFirstResponder];
+//
+//            [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+//                
+//                self.studentTable.frame=CGRectMake(self.studentTable.frame.origin.x,self.studentTable.frame.origin.y-80-44, self.studentTable.frame.size.width,self.studentTable.frame.size.height+80+44);
+//            } completion:^(BOOL finished) {
+//                [self.askCoinView removeFromSuperview];
+//                self.askCoinView =nil;
+//            }];
+//            
+//        }
         [self.manageCoinToolbarSelection removeFromSuperview];
     }
     

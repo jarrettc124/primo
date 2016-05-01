@@ -70,16 +70,16 @@
     }
     
     if (IS_IPHONE) {
-        [toolbarBackground setFrame:CGRectMake(0, 0, 320, 64)];
+        [toolbarBackground setFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
         [backgroundImage setFrame:self.view.frame];
-        [tutorialbackground setFrame:CGRectMake(10, 70, 300, 100)];
+        [tutorialbackground setFrame:CGRectMake((self.view.frame.size.width-300)/2, 70, 300, 100)];
         
         [demoImageView setFrame:CGRectMake(self.view.center.x-195/2, tutorialbackground.frame.origin.y+tutorialbackground.frame.size.height-50, 195, 300)];
         
         [backToClassButton setFrame:CGRectMake(10,demoImageView.frame.origin.y+demoImageView.frame.size.height+3,300, 80)];
         
-        [signUpButton setFrame:CGRectMake(10,self.view.frame.size.height-150,300, 50)];
-        [loginButton setFrame:CGRectMake(10, self.view.frame.size.height-90, 300, 50)];
+        [signUpButton setFrame:CGRectMake((self.view.frame.size.width-300)/2,self.view.frame.size.height-150,300, 50)];
+        [loginButton setFrame:CGRectMake((self.view.frame.size.width-300)/2, self.view.frame.size.height-90, 300, 50)];
         
         [signUpButton.titleLabel setFont:[UIFont fontWithName:@"Eraser" size:28]];
         [backToClassButton.titleLabel setFont:[UIFont fontWithName:@"Eraser" size:20]];

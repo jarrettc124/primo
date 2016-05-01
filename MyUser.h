@@ -11,4 +11,5 @@
 @interface MyUser : NSObject
 +(void)storeDefaults:(NSDictionary*)userDict;
 +(BOOL)isLoggedIn;
++(void)removeDefaults;
 @end

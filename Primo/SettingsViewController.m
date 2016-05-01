@@ -63,7 +63,7 @@
     }
     else if (IS_IPHONE){
         [settingBackground setFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, 240)];
-        settingBackground.contentMode =UIViewContentModeBottom;
+        settingBackground.contentMode =UIViewContentModeScaleAspectFill;
         
         _settingsTable = [[UITableView alloc]initWithFrame:CGRectMake(0.0,settingBackground.frame.origin.y+settingBackground.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height-settingBackground.frame.origin.y+settingBackground.frame.size.height) style:UITableViewStyleGrouped];
         [self.view addSubview:_settingsTable];

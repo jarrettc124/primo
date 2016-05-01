@@ -66,7 +66,7 @@
 
         self.pieChart = [[XYPieChart alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2 - 150, 105,300, 300)];
         [self.view addSubview:self.pieChart];
-        [studentNameLabel setFrame:CGRectMake(20, 70, 280, 60)];
+        [studentNameLabel setFrame:CGRectMake((self.view.frame.size.width - 280)/2, 70, 280, 60)];
         [self.sliceLabel setFrame:CGRectMake(5, self.pieChart.frame.origin.y+300, self.view.frame.size.width-10, 40)];
     }
     else if (IS_IPAD){
@@ -168,7 +168,7 @@
     
     if (IS_IPHONE) {
         [directionStats setFrame:self.view.frame];
-        [blackboardDirection setFrame:CGRectMake(0, 105, 320, 250)];
+        [blackboardDirection setFrame:CGRectMake((self.view.frame.size.width - 320)/2, 105, 320, 250)];
     }
     else if (IS_IPAD){
         directionStats.translatesAutoresizingMaskIntoConstraints=NO;

@@ -400,8 +400,7 @@
     
     [self.navigationItem setRightBarButtonItem:demoCancel];
     
-    CGRect listFrame;
-        listFrame = CGRectMake(20,self.view.frame.size.height,280,350);
+    CGRect listFrame = CGRectMake((self.view.frame.size.width - 280)/2,self.view.frame.size.height,280,350);
     
     
     UIImageView *progressChart = nil;
@@ -755,14 +754,14 @@
             [tutorialbackground setAlpha:0];
             [self.view addSubview:tutorialbackground];
 
-            if(IS_IPHONE){
-                [tutorialbackground setFrame:CGRectMake(40, 90, 280, 170)];
-                BouncingPencil *pencilArrow = [[BouncingPencil alloc]initWithFrame:CGRectMake(self.view.frame.size.width-100, 44, 60, 60)];
-                [pencilArrow setTag:2000];
-                [pencilArrow setUpPencilBounceFrame:pencilArrow.frame targetX:15 targetY:-9 rotation:5*M_PI_4];
-                [self.view addSubview:pencilArrow];
-            }
-            else if (IS_IPAD){
+//            if(IS_IPHONE){
+//                [tutorialbackground setFrame:CGRectMake(40, 90, 280, 170)];
+//                BouncingPencil *pencilArrow = [[BouncingPencil alloc]initWithFrame:CGRectMake(self.view.frame.size.width-100, 44, 60, 60)];
+//                [pencilArrow setTag:2000];
+//                [pencilArrow setUpPencilBounceFrame:pencilArrow.frame targetX:15 targetY:-9 rotation:5*M_PI_4];
+//                [self.view addSubview:pencilArrow];
+//            }
+//            else if (IS_IPAD){
                 tutorialbackground.translatesAutoresizingMaskIntoConstraints=NO;
                 [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[tutorialbackground(280)]-100-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(tutorialbackground)]];
                 [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-100-[tutorialbackground(170)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(tutorialbackground)]];
@@ -776,7 +775,7 @@
                 [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-45-[pencilArrow(60)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(pencilArrow)]];
                 [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[pencilArrow(60)]-50-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(pencilArrow)]];
                 [pencilArrow setUpPencilBounceForiPad:CGSizeMake(60, 60) targetX:15 targetY:-9 rotation:5*M_PI_4];
-            }
+//            }
 
             
             CGAffineTransform transform = CGAffineTransformMakeScale(0.9, 0.9);
@@ -810,16 +809,16 @@
             [tutorialbackground setAlpha:0];
             [self.view addSubview:tutorialbackground];
             
-            if(IS_IPHONE){
-                [tutorialbackground setFrame:CGRectMake(40, 90, 280, 170)];
-                BouncingPencil *pencilArrow = [[BouncingPencil alloc]initWithFrame:CGRectMake(220, 44, 60, 60)];
-                [pencilArrow setTag:2000];
-                [pencilArrow setUpPencilBounceFrame:pencilArrow.frame targetX:15 targetY:-9 rotation:5*M_PI_4];
-                [self.view addSubview:pencilArrow];
-            }
-            else if(IS_IPAD){
+//            if(IS_IPHONE){
+//                [tutorialbackground setFrame:CGRectMake(40, 90, 280, 170)];
+//                BouncingPencil *pencilArrow = [[BouncingPencil alloc]initWithFrame:CGRectMake(220, 44, 60, 60)];
+//                [pencilArrow setTag:2000];
+//                [pencilArrow setUpPencilBounceFrame:pencilArrow.frame targetX:15 targetY:-9 rotation:5*M_PI_4];
+//                [self.view addSubview:pencilArrow];
+//            }
+//            else if(IS_IPAD){
                 tutorialbackground.translatesAutoresizingMaskIntoConstraints=NO;
-                [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[tutorialbackground(280)]-100-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(tutorialbackground)]];
+                [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[tutorialbackground(280)]-30-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(tutorialbackground)]];
                 [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-100-[tutorialbackground(170)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(tutorialbackground)]];
                 
                 
@@ -833,7 +832,7 @@
                 [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[pencilArrow(60)]-50-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(pencilArrow)]];
                 [pencilArrow setUpPencilBounceForiPad:CGSizeMake(60, 60) targetX:15 targetY:-9 rotation:5*M_PI_4];
                 
-            }
+//            }
             
             
             CGAffineTransform transform = CGAffineTransformMakeScale(0.9, 0.9);
@@ -1976,7 +1975,7 @@
             if ((int)[self.studentsProgress getTotalProgress] == 1) {
                 if (IS_IPHONE) {
                     
-                    DemoRateAppView *rateApp = [[DemoRateAppView alloc]initWithFrame:CGRectMake(5,70, 310, 320)];
+                DemoRateAppView *rateApp = [[DemoRateAppView alloc]initWithFrame:CGRectMake((self.view.frame.size.width - 310)/2,70, 310, 320)];
                     [self.view addSubview:rateApp];
                     [rateApp showRatePopUp];
                 }

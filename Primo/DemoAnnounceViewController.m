@@ -70,7 +70,7 @@
     else if(IS_IPHONE){
         [toolbarBackground setFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
 
-        [self.announceTable setFrame:CGRectMake(0.0, 64.0, 320.0, self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height-64-35)];
+        [self.announceTable setFrame:CGRectMake(0.0, 64.0, self.view.frame.size.width, self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height-64-35)];
     }
 
     //Tutorial
@@ -212,7 +212,7 @@
         [tutorialbackground setFrame:CGRectMake(0, 90, 320, 200)];
         
         if ([self.userType isEqualToString:@"Teacher"]){
-            BouncingPencil *pencilArrow = [[BouncingPencil alloc]initWithFrame:CGRectMake(220, 44, 60, 60)];
+           BouncingPencil *pencilArrow = [[BouncingPencil alloc]initWithFrame:CGRectMake(self.view.frame.size.width-100, 44, 60, 60)];
             [pencilArrow setTag:2000];
             [pencilArrow setUpPencilBounceFrame:pencilArrow.frame targetX:15 targetY:-9 rotation:5*M_PI_4];
             [self.closedView addSubview:pencilArrow];
@@ -446,9 +446,15 @@
         }
         else if (IS_IPHONE){
             [titleLabel setFrame:CGRectMake(80, 5,self.view.frame.size.width-85,55)];
-            [dateLabel setFrame:CGRectMake(130,5+titleLabel.frame.size.height,self.view.frame.size.width-135,30)];
-            [clockImage setFrame:CGRectMake(dateLabel.frame.origin.x-25, dateLabel.frame.origin.y+5, 20, 20)];
-            [announcementPicture setFrame:CGRectMake(10, 20, 90-40, 90-40)];
+            
+            dateLabel.translatesAutoresizingMaskIntoConstraints=NO;
+            clockImage.translatesAutoresizingMaskIntoConstraints=NO;
+            
+            [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[clockImage(15)]-8-[dateLabel]-8-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(clockImage,dateLabel)]];
+            [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[clockImage(15)]-6-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(clockImage)]];
+            [cell.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[dateLabel(30)]-0-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(dateLabel)]];
+            
+            [announcementPicture setFrame:CGRectMake(10, 20, 50, 50)];
             
         }
         
@@ -649,7 +655,7 @@
             if ((int)[self.teacherProgress getTotalProgress] == 1) {
                 if (IS_IPHONE) {
                     
-                    DemoRateAppView *rateApp = [[DemoRateAppView alloc]initWithFrame:CGRectMake(5,70, 310, 320)];
+                DemoRateAppView *rateApp = [[DemoRateAppView alloc]initWithFrame:CGRectMake((self.view.frame.size.width - 310)/2,70, 310, 320)];
                     [self.view addSubview:rateApp];
                     [rateApp showRatePopUp];
                 }

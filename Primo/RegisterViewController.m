@@ -85,13 +85,13 @@
     [self.emailField setKeyboardType:UIKeyboardTypeEmailAddress];
     self.emailField.borderStyle = UITextBorderStyleNone;
     self.emailField.autocorrectionType = UITextAutocorrectionTypeNo;
+    self.emailField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     
     self.passwordField = [[UITextField alloc]init];
     self.passwordField.placeholder = @"Password";
     self.passwordField.secureTextEntry = YES;
     self.passwordField.borderStyle = UITextBorderStyleNone;
     self.passwordField.autocorrectionType = UITextAutocorrectionTypeNo;
-
 
     _emailField.delegate = self;
     _passwordField.delegate = self;
@@ -159,7 +159,7 @@
         [self.signUpButton addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_signUpButton(210)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_signUpButton)]];
         [privacyLabel addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[privacyLabel(290)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(privacyLabel)]];
         [privacyLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:13]];
-        [privacyLabel setText:[NSString stringWithFormat:@"By signing up you agree to the\nand Terms of Agreement that governs the use of Primo"]];
+        [privacyLabel setText:[NSString stringWithFormat:@"By signing up you agree to the\nand Terms of Agreement that governs the use of LCEdu"]];
         
         
         [privacyButton setFrame:CGRectMake(173, -6, 120, 30)];

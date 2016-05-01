@@ -45,7 +45,7 @@
         directionLabel.numberOfLines=0;
         directionLabel.textColor = [UIColor whiteColor];
         directionLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:17];
-        directionLabel.text = @"Enter your email you registered for Primo. Your password will be sent to you.";
+        directionLabel.text = @"Enter your email you registered for LCEdu. Your password will be sent to you.";
         [self.view addSubview:directionLabel];
         
         self.emailField = [[UITextField alloc]initWithFrame:CGRectMake(30,directionLabel.frame.origin.y+directionLabel.frame.size.height+20, self.view.frame.size.width-60, 30)];
@@ -128,7 +128,7 @@
             NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
             
             NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-            [request setURL:[NSURL URLWithString:@"http://www.pixelandprocessor.com/primo/user_login.php"]];
+            [request setURL:[NSURL URLWithString:@"http://www.pixelandprocessor.com/stanton/user_login.php"]];
             [request setHTTPMethod:@"POST"];
             [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
             [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];

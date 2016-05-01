@@ -46,10 +46,11 @@
         UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
         if(orientation == UIInterfaceOrientationPortrait){
                 //Do something if the orientation is in Portrait
-            [self.launchImage setImage:[UIImage imageNamed:@"loadingBackgroundPortrait"]];
+            [self.launchImage setImage:[UIImage imageNamed:@"blackboardBackground"]];
+            
         }
         else if((orientation == UIInterfaceOrientationLandscapeLeft) || (orientation == UIInterfaceOrientationLandscapeRight)){
-            [self.launchImage setImage:[UIImage imageNamed:@"loadingBackgroundLandscape"]];
+            [self.launchImage setImage:[UIImage imageNamed:@"blackboardBackground"]];
         }
         
         
@@ -61,7 +62,7 @@
         [self.view addConstraint:[NSLayoutConstraint constraintWithItem:loadingView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1 constant:150]];
     }
     else if (IS_IPHONE){
-        [self.launchImage setImage:[UIImage imageNamed:@"loadingBackground"]];
+        [self.launchImage setImage:[UIImage imageNamed:@"blackboardBackground"]];
         [loadingView setFrame:CGRectMake(self.view.frame.size.width/2-15,self.view.frame.size.height/2+50, 30, 30)];
     }
 }

@@ -49,6 +49,23 @@ static MyUser* sharedUser = nil;
     
 }
 
++(void)removeDefaults{
+    
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:@"ObjectId"];
+    [defaults removeObjectForKey:@"UserType"];
+    [defaults removeObjectForKey:@"Email"];
+    [defaults removeObjectForKey:@"UserId"];
+    [defaults removeObjectForKey:@"FirstName"];
+    [defaults removeObjectForKey:@"LastName"];
+    [defaults removeObjectForKey:@"Gender"];
+    [defaults removeObjectForKey:@"UniversalToken"];
+    [defaults synchronize];
+    
+
+}
+
 + (NSManagedObjectContext *)managedObjectContext {
     NSManagedObjectContext *context = nil;
     id delegate = [[UIApplication sharedApplication] delegate];

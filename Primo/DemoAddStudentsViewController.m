@@ -228,7 +228,7 @@
         [self.view addSubview:self.coinView];
         [self.coinView setUserInteractionEnabled:YES];
         if (IS_IPHONE){
-            [self.coinView setFrame:CGRectMake(10, 100, 300, 300)];
+            [self.coinView setFrame:CGRectMake((self.view.frame.size.width-300)/2, 100, 300, 300)];
         }
         else if (IS_IPAD){
             
@@ -474,7 +474,7 @@
             if ((int)[addClassComplete getTotalProgress] == 1) {
                 if (IS_IPHONE) {
                     
-                    DemoRateAppView *rateApp = [[DemoRateAppView alloc]initWithFrame:CGRectMake(5,70, 310, 320)];
+                DemoRateAppView *rateApp = [[DemoRateAppView alloc]initWithFrame:CGRectMake((self.view.frame.size.width - 310)/2,70, 310, 320)];
                     [self.view addSubview:rateApp];
                     [rateApp showRatePopUp];
                 }

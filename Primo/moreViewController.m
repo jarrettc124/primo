@@ -7,6 +7,8 @@
 //
 
 #import "moreViewController.h"
+#import "MyUser.h"
+
 @interface moreViewController ()
 
 @property (nonatomic,strong) UITableView *moreTable;
@@ -40,12 +42,14 @@
     //initializing grouped table
     if ([_userType isEqualToString:@"Teacher"]) {
         _accountSetting = [[NSArray alloc]initWithObjects:@"Settings",@"Restart Bank",@"Clear Broadcast", nil];
-        _demoSettings = [[NSArray alloc]initWithObjects:@"Play Demo to learn more",@"Rate this App!",@"Sign your students up now!", nil];
+//        _demoSettings = [[NSArray alloc]initWithObjects:@"Play Demo to learn more",@"Rate this App!",@"Sign your students up now!", nil];
+        _demoSettings = [[NSArray alloc]initWithObjects:@"Play Demo to learn more",@"Sign your students up now!", nil];
 
     }
     else{
         _accountSetting = [[NSArray alloc]initWithObjects:@"Settings", nil];
-        _demoSettings = [[NSArray alloc]initWithObjects:@"Play Demo to learn more",@"Rate this App!", nil];
+//        _demoSettings = [[NSArray alloc]initWithObjects:@"Play Demo to learn more",@"Rate this App!", nil];
+        _demoSettings = [[NSArray alloc]initWithObjects:@"Play Demo to learn more", nil];
 
     }
     
@@ -93,7 +97,7 @@
         
         [toolbarBackground setFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
 
-        _moreTable = [[UITableView alloc]initWithFrame:CGRectMake(0.0, 64, 320.0, self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height-67) style:UITableViewStyleGrouped];
+        _moreTable = [[UITableView alloc]initWithFrame:CGRectMake(0.0, 64, self.view.frame.size.width, self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height-67) style:UITableViewStyleGrouped];
         _moreTable.delegate =self;
         _moreTable.dataSource =self;
         [self.view addSubview:_moreTable];
@@ -160,7 +164,7 @@
     return cell;
 }
 
--(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     //selectedCell is nill first
     NSString *selectedCell = nil;
@@ -185,16 +189,14 @@
         PushWebService *pushService = [[PushWebService alloc]init];
         NSString *devicetoken = [[NSUserDefaults standardUserDefaults] objectForKey:@"DeviceToken"];
         
-        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-        [userDefault removeObjectForKey:@"UserType"];
-        [userDefault removeObjectForKey:@"Email"];
-        [userDefault removeObjectForKey:@"UserId"];
-        [userDefault removeObjectForKey:@"FirstName"];
-        [userDefault removeObjectForKey:@"LastName"];
-        [userDefault removeObjectForKey:@"Gender"];
-        [userDefault synchronize];
+
         
-        NSString *objId = [[NSUserDefaults standardUserDefaults] objectForKey:@"ObjectId"];
+        NSString *objId = [[[NSUserDefaults standardUserDefaults] objectForKey:@"ObjectId"] copy];
+        
+        [MyUser removeDefaults];
+        
+        NSLog(@"objectid : %@",objId);
+        
         [pushService removeTokenFromUserId:objId deviceToken:devicetoken];
         if ([_userType isEqualToString:@"Teacher"]) {
             
@@ -218,9 +220,9 @@
         
         
     }
-    else if ([selectedCell isEqualToString:@"Rate this App!"]){
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=892544489"]];
-    }
+//    else if ([selectedCell isEqualToString:@"Rate this App!"]){
+//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=892544489"]];
+//    }
     else if ([selectedCell isEqualToString:@"Play Demo to learn more"]){
         if ([self.userType isEqualToString:@"Teacher"]) {
             [self performSegueWithIdentifier:@"teacherToDemoSegue" sender:self];
@@ -256,7 +258,7 @@
         MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
         mc.mailComposeDelegate = self;
         [mc setSubject:@"Feedback"];
-        [mc setToRecipients:@[@"info@www.pixelandprocessor.com"]];
+        [mc setToRecipients:@[@"info@pixelandprocessor.com"]];
         // Present mail view controller on screen
         [self presentViewController:mc animated:YES completion:NULL];
         
@@ -323,7 +325,17 @@
     
     if (IS_IPHONE) {
         [studentSignUpBackground setFrame:self.view.frame];
-        [blackboardDirection setFrame:CGRectMake(0, 64, 320, 420)];
+//        [studentSignUpBackground setBackgroundColor:[UIColor redColor]];
+//        [blackboardDirection setFrame:CGRectMake(0, 64, 320, 420)];
+        
+//        studentSignUpBackground.translatesAutoresizingMaskIntoConstraints=NO;
+        blackboardDirection.translatesAutoresizingMaskIntoConstraints=NO;
+        [studentSignUpBackground addConstraint:[NSLayoutConstraint constraintWithItem:blackboardDirection attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:studentSignUpBackground attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
+        [studentSignUpBackground addConstraint:[NSLayoutConstraint constraintWithItem:blackboardDirection attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:studentSignUpBackground attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
+        
+        [blackboardDirection addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[blackboardDirection(300)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(blackboardDirection)]];
+        [blackboardDirection addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[blackboardDirection(420)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(blackboardDirection)]];
+        
     }
     else if (IS_IPAD){
         studentSignUpBackground.translatesAutoresizingMaskIntoConstraints=NO;
@@ -350,7 +362,7 @@
         [directionLabel setTextColor:[UIColor whiteColor]];
         [directionLabel setFrame:CGRectMake(10, 15, blackboardDirection.frame.size.width+15, blackboardDirection.frame.size.height-200)];
         [blackboardDirection addSubview:directionLabel];
-        [directionLabel setText:@"Your students will need three things to sign up! \n\n-The student's name on your list.\n-Your email address on Primo.\n-The class name"];
+        [directionLabel setText:@"Your students will need three things to sign up! \n\n-The student's name on your list.\n-Your email address on LCEdu.\n-The class name"];
         
         UIImageView *directionImage = [UIImageView new];
         [directionImage setImage:[UIImage imageNamed:@"tutorialImg8"]];
@@ -358,8 +370,8 @@
         
         if (IS_IPHONE) {
             [directionLabel setFont:[UIFont fontWithName:@"Eraser" size:15]];
-            [directionImage setFrame:CGRectMake(blackboardDirection.center.x-150,directionLabel.frame.origin.y+directionLabel.frame.size.height,295,blackboardDirection.frame.size.height-directionLabel.frame.size.height+10 )];
-            NSLog(@"directionImage: %f",directionImage.frame.size.height);
+            
+            [directionImage setFrame:CGRectMake(0,directionLabel.frame.origin.y+directionLabel.frame.size.height,295,blackboardDirection.frame.size.height-directionLabel.frame.size.height+10 )];
 
         }
         else if (IS_IPAD){

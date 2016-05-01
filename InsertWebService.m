@@ -81,7 +81,7 @@
         NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
         
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-        [request setURL:[NSURL URLWithString:@"http://www.pixelandprocessor.com/primo/user_login.php"]];
+        [request setURL:[NSURL URLWithString:@"http://www.pixelandprocessor.com/stanton/user_login.php"]];
         [request setHTTPMethod:@"POST"];
         [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
         [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -220,7 +220,7 @@
         NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
         
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-        [request setURL:[NSURL URLWithString:@"http://www.pixelandprocessor.com/primo/insertordelete.php"]];
+        [request setURL:[NSURL URLWithString:@"http://www.pixelandprocessor.com/stanton/insertordelete.php"]];
         [request setHTTPMethod:@"POST"];
         [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
         [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];

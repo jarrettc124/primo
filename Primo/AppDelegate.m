@@ -96,7 +96,7 @@
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     
-    [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.pixelandprocessor.com/primo/postdt.php?dt=%@",token]]];
+    [request setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://www.pixelandprocessor.com/stanton/postdt.php?dt=%@",token]]];
 
     NSURLConnection *connection= [[NSURLConnection alloc] initWithRequest:request
                                                                  delegate:self];

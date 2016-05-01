@@ -47,9 +47,9 @@
             [self.backgroundImage setFrame:CGRectMake(self.view.center.x-195/2, 64, 195, 300)];
         }
         
-        [tutorialbackground setFrame:CGRectMake(10,self.backgroundImage.frame.origin.y+self.backgroundImage.frame.size.height+5, 300, 120)];
+        [tutorialbackground setFrame:CGRectMake((self.view.frame.size.width-300)/2,self.backgroundImage.frame.origin.y+self.backgroundImage.frame.size.height+5, 300, 120)];
         
-        self.tutorialLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 5, tutorialbackground.frame.size.width-50, tutorialbackground.frame.size.height-30)];
+        self.tutorialLabel = [[UILabel alloc]initWithFrame:CGRectMake((tutorialbackground.frame.size.width - (tutorialbackground.frame.size.width-50))/2, 5, tutorialbackground.frame.size.width-50, tutorialbackground.frame.size.height-30)];
         self.tutorialLabel.numberOfLines=0;
 
         self.tutorialLabel.font = [UIFont fontWithName:@"Eraser" size:15];
