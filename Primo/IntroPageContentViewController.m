@@ -63,13 +63,15 @@
         self.backgroundImage.translatesAutoresizingMaskIntoConstraints=NO;
         
         [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-70-[_backgroundImage(370)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_backgroundImage)]];
-//        [_backgroundImage addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_backgroundImage(500)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_backgroundImage)]];
+
         [self.view addConstraint:[NSLayoutConstraint constraintWithItem:_backgroundImage attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
 
         
         [self.view addConstraint:[NSLayoutConstraint constraintWithItem:tutorialbackground attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1 constant:155]];
         [tutorialbackground addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[tutorialbackground(200)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(tutorialbackground)]];
-        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-40-[tutorialbackground(400)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(tutorialbackground)]];
+        
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:tutorialbackground attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
+//        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-40-[tutorialbackground(400)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(tutorialbackground)]];
      
         self.tutorialLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 5, 400-40, 200-10)];
         self.tutorialLabel.numberOfLines=0;

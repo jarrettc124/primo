@@ -55,6 +55,8 @@
     
     self.announcementArray = [NSMutableArray new];
     self.announceTable = [[UITableView alloc]init];
+    self.announceTable.cellLayoutMarginsFollowReadableWidth = NO;
+
     self.announceTable.backgroundColor=[UIColor colorWithWhite:0.9 alpha:1];
     self.announceTable.delegate =self;
     self.announceTable.dataSource =self;
@@ -711,7 +713,8 @@
 
      
 -(void)postAnnouncementCancelButton{
-    
+    [self.view endEditing:true];
+
     self.tabBarController.navigationItem.title=self.classTitle;
     self.tabBarController.navigationItem.rightBarButtonItem = self.rightBarButton;
     self.tabBarController.navigationItem.leftBarButtonItem = nil;
@@ -731,6 +734,7 @@
 
 
 -(void)postAnnouncementDoneAction{
+    [self.view endEditing:true];
 
     if ([self.announcementPost.whatTypeTextField.text isEqualToString:@""]&&[self.announcementPost.toWhomTextField.text isEqualToString:@""]){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops, did you forget something?" message:@"You must fill in all of fields before you can post" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];

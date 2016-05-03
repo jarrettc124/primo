@@ -59,6 +59,7 @@
     [progressChart setImage:[UIImage imageNamed:@"blackboardBorder"]];
     
     UITableView *tableProgress = [[UITableView alloc]initWithFrame:CGRectMake(10, 20, progressChart.frame.size.width-20, progressChart.frame.size.height-80)];
+    tableProgress.cellLayoutMarginsFollowReadableWidth = NO;
     tableProgress.delegate = self;
     tableProgress.dataSource=self;
     tableProgress.allowsSelection=NO;

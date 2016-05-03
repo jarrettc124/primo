@@ -42,6 +42,7 @@
         UILabel *direction = [[UILabel alloc]initWithFrame:CGRectMake(self.frame.origin.x+30,5, self.frame.size.width-30, 60)];
         direction.text=@"Please enter the name of the class you want to add";
         direction.numberOfLines=0;
+        direction.textAlignment = NSTextAlignmentCenter;
         direction.textColor = [UIColor whiteColor];
         direction.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:16];
         [self addSubview:direction];

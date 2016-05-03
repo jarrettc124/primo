@@ -48,6 +48,8 @@
 
     if (IS_IPAD) {
         _menuViewTable = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        _menuViewTable.cellLayoutMarginsFollowReadableWidth = NO;
+
         UIImageView *background = [[UIImageView alloc]initWithFrame:self.menuViewTable.frame];
         [background setImage:[UIImage imageNamed:@"blackboardBackground"]];
         [self.menuViewTable setBackgroundView:background];
@@ -71,6 +73,8 @@
     }
     else if (IS_IPHONE){
         _menuViewTable = [[UITableView alloc]initWithFrame:CGRectMake(51, self.frame.origin.y, self.frame.size.width-51, self.frame.size.height) style:UITableViewStyleGrouped];
+        _menuViewTable.cellLayoutMarginsFollowReadableWidth = NO;
+
         UIImageView *background = [[UIImageView alloc]initWithFrame:self.menuViewTable.frame];
         [background setImage:[UIImage imageNamed:@"blackboardBackground"]];
         [self.menuViewTable setBackgroundView:background];

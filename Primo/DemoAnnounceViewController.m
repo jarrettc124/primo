@@ -52,6 +52,8 @@
     
     self.announcementArray = [[NSMutableArray alloc]initWithCapacity:0];
     self.announceTable = [[UITableView alloc]init];
+    self.announceTable.cellLayoutMarginsFollowReadableWidth = NO;
+
     self.announceTable.backgroundColor=[UIColor colorWithWhite:0.9 alpha:1];
     self.announceTable.delegate =self;
     self.announceTable.dataSource =self;

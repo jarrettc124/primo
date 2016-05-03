@@ -84,9 +84,13 @@
     
     //Create the Table
     _studentTable = [[UITableView alloc]init];
+    self.studentTable.cellLayoutMarginsFollowReadableWidth = NO;
+
     _studentTable.delegate =self;
     _studentTable.dataSource =self;
     self.studentTable.allowsMultipleSelectionDuringEditing = YES;
+    self.studentTable.cellLayoutMarginsFollowReadableWidth = NO;
+
     self.studentTable.allowsSelection = YES;
     [self.view addSubview:_studentTable];
     
@@ -852,44 +856,28 @@
     [self.manageCoinToolbarSelection setItems:barButtonArray animated:NO];
     [self.view insertSubview:self.manageCoinToolbarSelection belowSubview:self.studentTable];
     
-    if (IS_IPAD) {
-        self.askCoinView = [[manageCoinView alloc]init];
-        self.askCoinView.teacherName=self.nameOfTeacher;
-        self.askCoinView.className = self.className;
-        [self.view insertSubview:self.askCoinView belowSubview:self.studentTable];
-        
-        self.askCoinView.translatesAutoresizingMaskIntoConstraints=NO;
-        self.manageCoinToolbarSelection.translatesAutoresizingMaskIntoConstraints=NO;
-        
-        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-64-[_askCoinView(80)]-0-[_manageCoinToolbarSelection(44)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_askCoinView,_manageCoinToolbarSelection)]];
-        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_askCoinView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_askCoinView)]];
-        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_manageCoinToolbarSelection]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_manageCoinToolbarSelection)]];
-        
-        self.pinStudentTableDown = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[_manageCoinToolbarSelection]-0-[_studentTable]-56-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_manageCoinToolbarSelection,_studentMenu,_studentTable)];
-        
+    self.askCoinView = [[manageCoinView alloc]init];
+    self.askCoinView.teacherName=self.nameOfTeacher;
+    self.askCoinView.className = self.className;
+    [self.view insertSubview:self.askCoinView belowSubview:self.studentTable];
+    
+    self.askCoinView.translatesAutoresizingMaskIntoConstraints=NO;
+    self.manageCoinToolbarSelection.translatesAutoresizingMaskIntoConstraints=NO;
+    self.askCoinView.backgroundColor = [UIColor redColor];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-64-[_askCoinView(80)]-0-[_manageCoinToolbarSelection(44)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_askCoinView,_manageCoinToolbarSelection)]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_askCoinView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_askCoinView)]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_manageCoinToolbarSelection]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_manageCoinToolbarSelection)]];
+    
+    self.pinStudentTableDown = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[_manageCoinToolbarSelection]-0-[_studentTable]-56-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_manageCoinToolbarSelection,_studentMenu,_studentTable)];
+    
+    [self.view layoutIfNeeded];
+    [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        [self.view removeConstraints:self.pinStudentTableToTop];
+        [self.view addConstraints:self.pinStudentTableDown];
         [self.view layoutIfNeeded];
-        [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-            [self.view removeConstraints:self.pinStudentTableToTop];
-            [self.view addConstraints:self.pinStudentTableDown];
-            [self.view layoutIfNeeded];
-            
-        } completion:^(BOOL finished) {
-        }];
         
-    }
-    else if (IS_IPHONE){
-        
-        self.askCoinView = [[manageCoinView alloc]initWithFrame:CGRectMake(self.view.frame.origin.x, 64, self.view.frame.size.width,80)];
-        self.askCoinView.teacherName=self.nameOfTeacher;
-        self.askCoinView.className = self.className;
-        [self.view insertSubview:self.askCoinView belowSubview:self.studentTable];
-        [self.manageCoinToolbarSelection setFrame:CGRectMake(self.view.frame.origin.x, self.askCoinView.frame.origin.y+self.askCoinView.frame.size.height,self.view.frame.size.width,44)];
-        
-        [UIView animateWithDuration:0.3 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-            self.studentTable.frame=CGRectMake(self.studentTable.frame.origin.x,self.studentTable.frame.origin.y+80+44, self.studentTable.frame.size.width,self.studentTable.frame.size.height-80-44);
-        } completion:^(BOOL finished) {
-        }];
-    }
+    } completion:^(BOOL finished) {
+    }];
 }
 
 //managecointoolbar

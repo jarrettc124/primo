@@ -35,6 +35,8 @@
     [self.view addSubview:toolbarBackground];
     
     UITableView *infoTable = [[UITableView alloc]init];
+    infoTable.cellLayoutMarginsFollowReadableWidth = NO;
+
     infoTable.delegate=self;
     infoTable.dataSource=self;
     infoTable.scrollEnabled=NO;

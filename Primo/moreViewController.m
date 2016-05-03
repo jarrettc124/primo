@@ -76,6 +76,8 @@
     
     if (IS_IPAD) {
         _moreTable = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        _moreTable.cellLayoutMarginsFollowReadableWidth = NO;
+
         _moreTable.delegate =self;
         _moreTable.dataSource =self;
         [self.view addSubview:_moreTable];
@@ -98,6 +100,7 @@
         [toolbarBackground setFrame:CGRectMake(0, 0, self.view.frame.size.width, 64)];
 
         _moreTable = [[UITableView alloc]initWithFrame:CGRectMake(0.0, 64, self.view.frame.size.width, self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height-67) style:UITableViewStyleGrouped];
+        _moreTable.cellLayoutMarginsFollowReadableWidth = NO;
         _moreTable.delegate =self;
         _moreTable.dataSource =self;
         [self.view addSubview:_moreTable];

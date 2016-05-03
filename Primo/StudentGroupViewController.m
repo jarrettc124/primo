@@ -64,6 +64,7 @@
     self.groupTableArray = [[NSMutableArray alloc]initWithCapacity:0];
     
     self.studentGroupTable = [[UITableView alloc]init];
+    self.studentGroupTable.cellLayoutMarginsFollowReadableWidth = NO;
     self.studentGroupTable.delegate = self;
     self.studentGroupTable.dataSource = self;
     self.studentGroupTable.allowsMultipleSelectionDuringEditing = NO;

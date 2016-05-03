@@ -71,6 +71,8 @@
     CGFloat tHeight = 310;
     
     self.classesTable = [[UITableView alloc]init];
+    self.classesTable.cellLayoutMarginsFollowReadableWidth = NO;
+
     self.classesTable.allowsMultipleSelectionDuringEditing = NO;
     self.classesTable.allowsSelection=YES;
     self.classesTable.delegate=self;

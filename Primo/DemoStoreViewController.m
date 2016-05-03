@@ -55,6 +55,8 @@
     
     CGFloat tableHeight = 180;
     _storeTable = [[UITableView alloc]init];
+    _storeTable.cellLayoutMarginsFollowReadableWidth = NO;
+
     _storeTable.delegate =self;
     _storeTable.dataSource =self;
     [self.view addSubview:_storeTable];

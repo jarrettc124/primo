@@ -67,6 +67,8 @@
     
     if(IS_IPAD){
         self.studentGroupTable = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        self.studentGroupTable.cellLayoutMarginsFollowReadableWidth = NO;
+
         [self.view addSubview:self.studentGroupTable];
 
         toolbarBackground.translatesAutoresizingMaskIntoConstraints=NO;
@@ -80,6 +82,7 @@
     else{
         [toolbarBackground setFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width,64)];
         self.studentGroupTable = [[UITableView alloc]initWithFrame:CGRectMake(self.view.frame.origin.x, 64, self.view.frame.size.width, self.view.frame.size.height-64) style:UITableViewStyleGrouped];
+        self.studentGroupTable.cellLayoutMarginsFollowReadableWidth = NO;
         [self.view addSubview:self.studentGroupTable];
     }
 

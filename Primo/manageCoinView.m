@@ -37,6 +37,8 @@
 //        if (IS_IPAD) {
             [self.holesLinedPaperBackground setImage:[UIImage imageNamed:@"linedPaperHole"]];
         self.holesLinedPaperBackground.contentMode = UIViewContentModeScaleAspectFill;
+        self.holesLinedPaperBackground.clipsToBounds = YES;
+        
             self.linedPaperBackground.translatesAutoresizingMaskIntoConstraints=NO;
             self.holesLinedPaperBackground.translatesAutoresizingMaskIntoConstraints=NO;
         self.directLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -49,7 +51,9 @@
         [self.linedPaperBackground addConstraint:[NSLayoutConstraint constraintWithItem:self.directLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.linedPaperBackground attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
         [self.linedPaperBackground addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-10-[_directLabel]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_directLabel)]];
         
-            
+
+
+        
 //        }
 //        else if (IS_IPHONE){
 //            [self.linedPaperBackground setFrame:CGRectMake(frame.origin.x, frame.origin.y-64, frame.size.width, frame.size.height/2)];

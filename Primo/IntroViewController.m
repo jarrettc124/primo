@@ -63,7 +63,7 @@
     UIImage *logoImage = [UIImage imageNamed:@"lcicon"];
     UIImageView *logoView = [[UIImageView alloc]init];
     [logoView setImage:logoImage];
-    logoView.contentMode=UIViewContentModeScaleAspectFill;
+    logoView.contentMode=UIViewContentModeScaleAspectFit;
     [self.view addSubview:logoView];
     
     UILabel *manageClassLabel = [UILabel new];
@@ -144,7 +144,7 @@
         [self.view addConstraint:[NSLayoutConstraint constraintWithItem:logoView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
         [self.view addConstraint:[NSLayoutConstraint constraintWithItem:logoView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1 constant:-150]];
         
-        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[logoView(271)]-20-[manageClassLabel(30)]-[learnMoreButton(30)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(logoView,manageClassLabel,learnMoreButton)]];
+        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[logoView(200)]-30-[manageClassLabel(30)]-[learnMoreButton(30)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(logoView,manageClassLabel,learnMoreButton)]];
         
         [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[demoClassButton]-20-[_loginButton]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(demoClassButton,_loginButton)]];
         

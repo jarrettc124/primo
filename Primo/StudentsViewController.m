@@ -103,6 +103,7 @@
 
     //Create the Table
     _studentTable = [[UITableView alloc]init];
+    _studentTable.cellLayoutMarginsFollowReadableWidth = NO;
     _studentTable.delegate =self;
     _studentTable.dataSource =self;
     self.studentTable.allowsMultipleSelectionDuringEditing = YES;

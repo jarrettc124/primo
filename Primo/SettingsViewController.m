@@ -49,6 +49,7 @@
         settingBackground.contentMode =UIViewContentModeScaleAspectFill;
 
         _settingsTable = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        _settingsTable.cellLayoutMarginsFollowReadableWidth = NO;
         [self.view addSubview:_settingsTable];
         
         //set Constraints
@@ -66,6 +67,7 @@
         settingBackground.contentMode =UIViewContentModeScaleAspectFill;
         
         _settingsTable = [[UITableView alloc]initWithFrame:CGRectMake(0.0,settingBackground.frame.origin.y+settingBackground.frame.size.height, self.view.frame.size.width, self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height-settingBackground.frame.origin.y+settingBackground.frame.size.height) style:UITableViewStyleGrouped];
+        _settingsTable.cellLayoutMarginsFollowReadableWidth = NO;
         [self.view addSubview:_settingsTable];
         
         if (self.view.frame.size.height<568) {

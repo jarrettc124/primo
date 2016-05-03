@@ -107,6 +107,8 @@
     self.dataArray = [[NSMutableArray alloc] initWithCapacity:0];
     self.studentObjArray = [[NSMutableArray alloc]initWithCapacity:0];
     _groupTable = [[UITableView alloc]initWithFrame:CGRectMake(0.0, 64, 320.0, self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height-64-84) style:UITableViewStyleGrouped];
+    self.groupTable.cellLayoutMarginsFollowReadableWidth = NO;
+
     _groupTable.delegate =self;
     _groupTable.dataSource =self;
     [self.view addSubview:_groupTable];

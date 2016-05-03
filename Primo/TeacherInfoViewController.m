@@ -57,6 +57,7 @@
     self.tableInfo = @[teacherName,totalClasses,totalStudents,emailButton];
     
     UITableView *infoTable = [[UITableView alloc]init];
+    infoTable.cellLayoutMarginsFollowReadableWidth = NO;
     infoTable.backgroundColor = [UIColor clearColor];
     infoTable.delegate=self;
     infoTable.dataSource=self;

@@ -148,6 +148,7 @@
     self.studentArray = [self sortArrayFinal:studentObjArray];
     
     _studentTable = [[UITableView alloc]init];
+    self.studentTable.cellLayoutMarginsFollowReadableWidth = NO;
     _studentTable.delegate =self;
     _studentTable.dataSource =self;
     self.studentTable.allowsMultipleSelectionDuringEditing = YES;
