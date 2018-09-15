@@ -230,8 +230,8 @@
         
         UIButton *buttonSub = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [buttonSub setBackgroundImage:[UIImage imageNamed:@"MinusImage"] forState:UIControlStateNormal];
-        [buttonSub addTarget:self action:@selector(buttonArithmeticAction:) forControlEvents:UIControlEventTouchUpInside];//
-        [buttonSub setTag:200];//
+        [buttonSub addTarget:self action:@selector(buttonArithmeticAction:) forControlEvents:UIControlEventTouchUpInside];
+        [buttonSub setTag:200];
         [cell.contentView addSubview:buttonSub];
         
         UILabel *coinLabel = [[UILabel alloc]init];

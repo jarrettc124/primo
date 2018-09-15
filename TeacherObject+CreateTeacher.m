@@ -25,7 +25,6 @@
     }
     else if([foundTeacher count]){
         teacher = [foundTeacher firstObject];
-        
     }
     else{
         //if not found, put the studentObject from database to data core

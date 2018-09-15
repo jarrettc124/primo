@@ -196,10 +196,15 @@
     [insertUser insertObjectInColumnWhere:@"Gender" setObjectValue:self.genderField.text];
     [insertUser insertObjectInColumnWhere:@"UniversalToken" setObjectValue:[[NSProcessInfo processInfo] globallyUniqueString]];
     [insertUser saveTheUserInDatabaseInBackground:^(NSError *error, id result) {
+        
+        NSLog(@"result: %@",result);
+        
         if (error) {
+            
             if (error.code == 400) {
                 NSLog(@"DUPLICATE!");
             }
+            
         }else{
             
             if ([self.userType isEqualToString:@"Teacher"]) {

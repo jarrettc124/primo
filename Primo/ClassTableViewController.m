@@ -706,6 +706,7 @@
         
     }
     else{
+        NSLog(@"ddddd");
         [self updateDatabaseInformation:nil];
     }
     
@@ -986,7 +987,8 @@
 }
 
 -(void)studentInfo{
-            NSString *objId = [[NSUserDefaults standardUserDefaults] objectForKey:@"ObjectId"];
+    
+    NSString *objId = [[NSUserDefaults standardUserDefaults] objectForKey:@"ObjectId"];
     
     if ([self.userType isEqualToString:@"Teacher"]) {
         
@@ -1043,14 +1045,16 @@
                 
             } completion:^(BOOL finished) {
                 
+                
+                
+                
                 //set button after everything is set
                 self.navigationItem.rightBarButtonItem=self.menuButton;
-                
                 
                 //we can use this to fetch from database to update
                 [self classesListFromParse];
                 [self.classesTable reloadData];
-                
+                NSLog(@"asdfadsfa");
                 [self updateDatabaseInformation:studentObjArray];
                 
             }];
@@ -2288,8 +2292,11 @@
 
 
 -(void)updateDatabaseInformation:(NSArray*)studentFromDatabase{
+    
+    
+    
+    
     NSString *objId = [[NSUserDefaults standardUserDefaults] objectForKey:@"ObjectId"];
-
 
     [_loadingLabel setText:@"Updating Students..."];
     
@@ -2318,7 +2325,6 @@
                     self.reachabilityLabel=nil;
                 }
                 
-                
                 NSMutableArray *studentsSignedUp = [[NSMutableArray alloc]initWithCapacity:0];
                 
                 int totalIntCoins=0;
@@ -2346,7 +2352,7 @@
                         totalIntSigned++;
                         [studentsSignedUp addObject:studentObject];
                     }
-                    
+
                     [_managedObjectContext save:&error];
                 }
                 
@@ -2358,7 +2364,7 @@
                         
                         predicate = [NSPredicate predicateWithFormat:@"objectId = %@",studentObj.objectId];
                         NSLog(@"array: %@",[rows filteredArrayUsingPredicate:predicate]);
-                        if ([[rows filteredArrayUsingPredicate:predicate] count] ==0) {
+                        if ([[rows filteredArrayUsingPredicate:predicate] count] == 0) {
                             NSLog(@"delete: %@",[rows filteredArrayUsingPredicate:predicate]);
                             [_managedObjectContext deleteObject:studentObj];
                         }

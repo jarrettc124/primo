@@ -21,7 +21,7 @@
         NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
         
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-        [request setURL:[NSURL URLWithString:@"http://www.pixelandprocessor.com/stanton/push_notification/notification.php"]];
+        [request setURL:[NSURL URLWithString:@"https://lcedu-php.herokuapp.com/push_notification/notification.php"]];
         [request setHTTPMethod:@"POST"];
         [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
         [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -50,7 +50,7 @@
         NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
         
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-        [request setURL:[NSURL URLWithString:@"http://www.pixelandprocessor.com/stanton/push_notification/notification.php"]];
+        [request setURL:[NSURL URLWithString:@"https://lcedu-php.herokuapp.com/push_notification/notification.php"]];
         [request setHTTPMethod:@"POST"];
         [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
         [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -85,7 +85,7 @@
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:@"http://www.pixelandprocessor.com/stanton/push_notification/notification.php"]];
+    [request setURL:[NSURL URLWithString:@"https://lcedu-php.herokuapp.com/push_notification/notification.php"]];
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];

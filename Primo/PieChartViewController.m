@@ -31,13 +31,13 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
 
-    NSString *userType = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserType"];
+//    NSString *userType = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserType"];
     
     
-    if([userType isEqualToString:@"Teacher"]){
-        UIBarButtonItem *logButton = [[UIBarButtonItem alloc]initWithTitle:@"Log" style:UIBarButtonItemStylePlain target:self action:@selector(logButtonSegue)];
-        [self.navigationItem setRightBarButtonItem:logButton];
-    }
+//    if([userType isEqualToString:@"Teacher"]){
+//        UIBarButtonItem *logButton = [[UIBarButtonItem alloc]initWithTitle:@"Log" style:UIBarButtonItemStylePlain target:self action:@selector(logButtonSegue)];
+//        [self.navigationItem setRightBarButtonItem:logButton];
+//    }
     
     UIImageView *backgroundView = [UIImageView new];
     [backgroundView setImage:[UIImage imageNamed:@"blackboardBackground"]];
