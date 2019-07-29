@@ -110,7 +110,6 @@
 		C4A8630E19B0F09E00C54632 /* DemoStoreObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A8630D19B0F09E00C54632 /* DemoStoreObject.m */; };
 		C4A8631119B11C9E00C54632 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4A8631019B11C9E00C54632 /* StartViewController.m */; };
 		C4B7C2DF1901A34E0028F5C9 /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B7C2DE1901A34E0028F5C9 /* LaunchViewController.m */; };
-		C4BBD5F4195CFC6D00F1A335 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4BBD5F3195CFC6D00F1A335 /* Main_iPad.storyboard */; };
 		C4BF34B9191B548A00919279 /* AnnouncementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BF34B8191B548A00919279 /* AnnouncementViewController.m */; };
 		C4BF34BF191C1D7B00919279 /* PostAnnouncement.m in Sources */ = {isa = PBXBuildFile; fileRef = C4BF34BE191C1D7B00919279 /* PostAnnouncement.m */; };
 		C4C00D3A1917FF0F007FA3F7 /* PrivacyAndTermsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C00D391917FF0F007FA3F7 /* PrivacyAndTermsViewController.m */; };
@@ -230,16 +229,16 @@
 		C455336B18F49EBA00520B99 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C455336D18F49EBA00520B99 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C455336F18F49EBA00520B99 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		C455337318F49EBA00520B99 /* Primo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Primo-Info.plist"; sourceTree = "<group>"; };
+		C455337318F49EBA00520B99 /* LCEdu.temp_caseinsensitive_rename-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LCEdu.temp_caseinsensitive_rename-Info.plist"; sourceTree = "<group>"; };
 		C455337518F49EBA00520B99 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C455337718F49EBA00520B99 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C455337918F49EBA00520B99 /* Primo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Primo-Prefix.pch"; sourceTree = "<group>"; };
+		C455337918F49EBA00520B99 /* LCEdu.temp_caseinsensitive_rename-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LCEdu.temp_caseinsensitive_rename-Prefix.pch"; sourceTree = "<group>"; };
 		C455337A18F49EBA00520B99 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C455337B18F49EBA00520B99 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		C455337E18F49EBA00520B99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C455338918F49EBA00520B99 /* PrimoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrimoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C455338918F49EBA00520B99 /* LCEduTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LCEduTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C455338A18F49EBA00520B99 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		C455339218F49EBA00520B99 /* PrimoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PrimoTests-Info.plist"; sourceTree = "<group>"; };
+		C455339218F49EBA00520B99 /* LCEdu.temp_caseinsensitive_renameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LCEdu.temp_caseinsensitive_renameTests-Info.plist"; sourceTree = "<group>"; };
 		C455339418F49EBA00520B99 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C455339618F49EBA00520B99 /* PrimoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrimoTests.m; sourceTree = "<group>"; };
 		C45533A018F49F2D00520B99 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -325,7 +324,6 @@
 		C4A8631019B11C9E00C54632 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 		C4B7C2DD1901A34E0028F5C9 /* LaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchViewController.h; sourceTree = "<group>"; };
 		C4B7C2DE1901A34E0028F5C9 /* LaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LaunchViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		C4BBD5F3195CFC6D00F1A335 /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
 		C4BF34B7191B548900919279 /* AnnouncementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnouncementViewController.h; sourceTree = "<group>"; };
 		C4BF34B8191B548A00919279 /* AnnouncementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnouncementViewController.m; sourceTree = "<group>"; };
 		C4BF34BD191C1D7B00919279 /* PostAnnouncement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostAnnouncement.h; sourceTree = "<group>"; };
@@ -450,6 +448,13 @@
 			name = Tutorial;
 			sourceTree = "<group>";
 		};
+		C41AB8FF22EE89B40009C0E4 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
 		C421360219AE804900462913 /* DemoModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -530,7 +535,7 @@
 			isa = PBXGroup;
 			children = (
 				C455336818F49EBA00520B99 /* LCEdu.app */,
-				C455338918F49EBA00520B99 /* PrimoTests.xctest */,
+				C455338918F49EBA00520B99 /* LCEduTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -559,6 +564,7 @@
 		C455337118F49EBA00520B99 /* Primo */ = {
 			isa = PBXGroup;
 			children = (
+				C41AB8FF22EE89B40009C0E4 /* Launch */,
 				C4095F1719AD0CF70076CBC3 /* Tutorial */,
 				C4095F1319AD0C660076CBC3 /* DemoClass */,
 				C42D3CA11C7BECFB005047F9 /* New Group */,
@@ -598,7 +604,6 @@
 				C4095F0E19A99C030076CBC3 /* PieChartViewController.m */,
 				C41D5DF819A4508100189983 /* GroupMoreViewController.h */,
 				C41D5DF919A4508100189983 /* GroupMoreViewController.m */,
-				C4BBD5F3195CFC6D00F1A335 /* Main_iPad.storyboard */,
 				C45533EC18F4A0BE00520B99 /* MonthLogViewController.h */,
 				C45533ED18F4A0BE00520B99 /* MonthLogViewController.m */,
 				C45533EE18F4A0BE00520B99 /* moreViewController.h */,
@@ -637,12 +642,12 @@
 			isa = PBXGroup;
 			children = (
 				C4514C86190C5C1B00424D23 /* Sketch College.ttf */,
-				C455337318F49EBA00520B99 /* Primo-Info.plist */,
+				C455337318F49EBA00520B99 /* LCEdu.temp_caseinsensitive_rename-Info.plist */,
 				C421361E19AFA68A00462913 /* TravelingTypewriter.ttf */,
 				C4095F0B19A99A760076CBC3 /* EraserRegular.ttf */,
 				C455337418F49EBA00520B99 /* InfoPlist.strings */,
 				C455337718F49EBA00520B99 /* main.m */,
-				C455337918F49EBA00520B99 /* Primo-Prefix.pch */,
+				C455337918F49EBA00520B99 /* LCEdu.temp_caseinsensitive_rename-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -659,7 +664,7 @@
 		C455339118F49EBA00520B99 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C455339218F49EBA00520B99 /* PrimoTests-Info.plist */,
+				C455339218F49EBA00520B99 /* LCEdu.temp_caseinsensitive_renameTests-Info.plist */,
 				C455339318F49EBA00520B99 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -736,9 +741,9 @@
 			productReference = C455336818F49EBA00520B99 /* LCEdu.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C455338818F49EBA00520B99 /* PrimoTests */ = {
+		C455338818F49EBA00520B99 /* LCEduTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C455339D18F49EBA00520B99 /* Build configuration list for PBXNativeTarget "PrimoTests" */;
+			buildConfigurationList = C455339D18F49EBA00520B99 /* Build configuration list for PBXNativeTarget "LCEduTests" */;
 			buildPhases = (
 				C455338518F49EBA00520B99 /* Sources */,
 				C455338618F49EBA00520B99 /* Frameworks */,
@@ -749,9 +754,9 @@
 			dependencies = (
 				C455338F18F49EBA00520B99 /* PBXTargetDependency */,
 			);
-			name = PrimoTests;
+			name = LCEduTests;
 			productName = PrimoTests;
-			productReference = C455338918F49EBA00520B99 /* PrimoTests.xctest */;
+			productReference = C455338918F49EBA00520B99 /* LCEduTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -761,7 +766,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0820;
-				ORGANIZATIONNAME = "Pixel and Processor";
+				ORGANIZATIONNAME = LanellClaire;
 				TargetAttributes = {
 					C455336718F49EBA00520B99 = {
 						DevelopmentTeam = ZVWUW3VP7A;
@@ -779,11 +784,12 @@
 					};
 				};
 			};
-			buildConfigurationList = C455336318F49EBA00520B99 /* Build configuration list for PBXProject "Primo" */;
+			buildConfigurationList = C455336318F49EBA00520B99 /* Build configuration list for PBXProject "LCEdu" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -793,7 +799,7 @@
 			projectRoot = "";
 			targets = (
 				C455336718F49EBA00520B99 /* LCEdu */,
-				C455338818F49EBA00520B99 /* PrimoTests */,
+				C455338818F49EBA00520B99 /* LCEduTests */,
 			);
 		};
 /* End PBXProject section */
@@ -809,7 +815,6 @@
 				C455341318F4A42300520B99 /* Images.xcassets in Resources */,
 				C421361F19AFA68A00462913 /* TravelingTypewriter.ttf in Resources */,
 				C455337618F49EBA00520B99 /* InfoPlist.strings in Resources */,
-				C4BBD5F4195CFC6D00F1A335 /* Main_iPad.storyboard in Resources */,
 				C4514C87190C5C1B00424D23 /* Sketch College.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1065,8 +1070,8 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Primo/Primo-Prefix.pch";
-				INFOPLIST_FILE = "Primo/Primo-Info.plist";
+				GCC_PREFIX_HEADER = "Primo/LCEdu.temp_caseinsensitive_rename-Prefix.pch";
+				INFOPLIST_FILE = "Primo/LCEdu.temp_caseinsensitive_rename-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pixelandprocessor.LCEdu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1088,8 +1093,8 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Primo/Primo-Prefix.pch";
-				INFOPLIST_FILE = "Primo/Primo-Info.plist";
+				GCC_PREFIX_HEADER = "Primo/LCEdu.temp_caseinsensitive_rename-Prefix.pch";
+				INFOPLIST_FILE = "Primo/LCEdu.temp_caseinsensitive_rename-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.pixelandprocessor.LCEdu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1114,7 +1119,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "PrimoTests/PrimoTests-Info.plist";
+				INFOPLIST_FILE = "PrimoTests/LCEdu.temp_caseinsensitive_renameTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pixelandprocessor.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -1133,7 +1138,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Primo/Primo-Prefix.pch";
-				INFOPLIST_FILE = "PrimoTests/PrimoTests-Info.plist";
+				INFOPLIST_FILE = "PrimoTests/LCEdu.temp_caseinsensitive_renameTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.pixelandprocessor.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -1144,7 +1149,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C455336318F49EBA00520B99 /* Build configuration list for PBXProject "Primo" */ = {
+		C455336318F49EBA00520B99 /* Build configuration list for PBXProject "LCEdu" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C455339818F49EBA00520B99 /* Debug */,
@@ -1162,7 +1167,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C455339D18F49EBA00520B99 /* Build configuration list for PBXNativeTarget "PrimoTests" */ = {
+		C455339D18F49EBA00520B99 /* Build configuration list for PBXNativeTarget "LCEduTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C455339E18F49EBA00520B99 /* Debug */,
