@@ -232,7 +232,8 @@
             [MyUser storeDefaults:result];
             
             self.navigationItem.hidesBackButton=NO;
-            [self performSegueWithIdentifier:@"signUpEndSegue" sender:self];
+            
+            //TODO: SEGUE TO CLASS
         }
 
     }];

@@ -89,7 +89,8 @@
     self.backgroundView.userInteractionEnabled=YES;
     [self.view addSubview:self.backgroundView];
 
-    
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = appDelegate.managedObjectContext;
     
     self.userType = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserType"];
 
@@ -590,7 +591,8 @@
         [self.view addSubview:pencilArrow];
         
         pencilArrow.translatesAutoresizingMaskIntoConstraints=NO;
-        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-45-[pencilArrow(60)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(pencilArrow)]];
+        CGFloat topConstraint = self.navigationController.navigationBar.frame.origin.y + 30;
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-topConstraint-[pencilArrow(60)]" options:0 metrics: @{@"topConstraint":[NSNumber numberWithFloat:topConstraint]} views:NSDictionaryOfVariableBindings(pencilArrow)]];
         [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[pencilArrow(60)]-50-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(pencilArrow)]];
         [pencilArrow setUpPencilBounceForiPad:CGSizeMake(60, 60) targetX:15 targetY:-9 rotation:5*M_PI_4];
         
@@ -603,6 +605,7 @@
         [tutorialbackground setTransform:transform];
         
     } completion:^(BOOL finished) {
+    
         UILabel *tutorialLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 5, tutorialbackground.frame.size.width-40, tutorialbackground.frame.size.height-10)];
         [tutorialLabel setFont:[UIFont fontWithName:@"Eraser" size:18]];
         [tutorialLabel setTextColor:[UIColor whiteColor]];

@@ -49,7 +49,7 @@
     
     _pictureText = @[@"tutorialImg1",@"tutorialImg2",@"tutorialImg3",@"tutorialImg4"],
     
-    self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
+    self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     
     IntroPageContentViewController *startingViewController = [self viewControllerAtIndex:0];
     NSArray *viewControllers = @[startingViewController];
@@ -145,7 +145,7 @@
     }
     
     // Create a new view controller and pass suitable data.
-    IntroPageContentViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"IntroPageContentViewController"];
+    IntroPageContentViewController *pageContentViewController = [[IntroPageContentViewController alloc] init];
     //pageContentViewController.imageFile = self.pageImages[index];
     pageContentViewController.tutorialText = self.pageTutorial[index];
     pageContentViewController.pictureText = self.pictureText[index];
@@ -158,16 +158,5 @@
     NSNumber *pageIndexNum = [notification object];
     self.pageControl.currentPage= [pageIndexNum intValue];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -16,15 +16,6 @@
 
 @implementation HelpViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -34,33 +25,27 @@
     backgroundView.userInteractionEnabled=YES;
     [self.view addSubview:backgroundView];
     
+    //Forgot Password
+    self.navigationItem.title=@"Password Recovery";
     
+    UILabel *directionLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 80, self.view.frame.size.width-40, 80)];
+    directionLabel.numberOfLines=0;
+    directionLabel.textColor = [UIColor whiteColor];
+    directionLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:17];
+    directionLabel.text = @"Enter your email you registered for LCEdu. Your password will be sent to you.";
+    [self.view addSubview:directionLabel];
     
-    if ([self.previousSegue isEqualToString:@"forgotPasswordSegue"]) {
-        
-        //Forgot Password
-        self.navigationItem.title=@"Password Recovery";
-        
-        UILabel *directionLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 80, self.view.frame.size.width-40, 80)];
-        directionLabel.numberOfLines=0;
-        directionLabel.textColor = [UIColor whiteColor];
-        directionLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:17];
-        directionLabel.text = @"Enter your email you registered for LCEdu. Your password will be sent to you.";
-        [self.view addSubview:directionLabel];
-        
-        self.emailField = [[UITextField alloc]initWithFrame:CGRectMake(30,directionLabel.frame.origin.y+directionLabel.frame.size.height+20, self.view.frame.size.width-60, 30)];
-        self.emailField.placeholder = @"Email";
-        self.emailField.borderStyle=UITextBorderStyleRoundedRect;
-        [self.emailField addTarget:self action:@selector(checkCondition) forControlEvents:UIControlEventEditingChanged];
-        [self.view addSubview:self.emailField];
-        
-        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(forgotPasswordAction)];
-        [self.navigationItem setRightBarButtonItem:doneButton];
-        
-        [self checkCondition];
-    }
+    self.emailField = [[UITextField alloc]initWithFrame:CGRectMake(30,directionLabel.frame.origin.y+directionLabel.frame.size.height+20, self.view.frame.size.width-60, 30)];
+    self.emailField.placeholder = @"Email";
+    self.emailField.borderStyle=UITextBorderStyleRoundedRect;
+    [self.emailField addTarget:self action:@selector(checkCondition) forControlEvents:UIControlEventEditingChanged];
+    [self.view addSubview:self.emailField];
+    
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(forgotPasswordAction)];
+    [self.navigationItem setRightBarButtonItem:doneButton];
+    
+    [self checkCondition];
 
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -158,28 +143,6 @@
         }
         
     }];
-    
-    
-
-    
-
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -14,15 +14,6 @@
 
 @implementation LoginViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -31,7 +22,6 @@
     self.navigationController.navigationBarHidden =NO;
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
     [self.navigationController.navigationBar setTintColor:[UIColor whiteColor]];
-    
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new]forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     self.navigationController.navigationBar.translucent = YES;
@@ -88,31 +78,19 @@
     [privacyButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     [privacyButton addTarget:self action:@selector(privacySegue) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:privacyButton];
+
+    self.backgroundView.translatesAutoresizingMaskIntoConstraints=NO;
+    loginDirection.translatesAutoresizingMaskIntoConstraints=NO;
+    loginTextfieldImage.translatesAutoresizingMaskIntoConstraints=NO;
+    privacyButton.translatesAutoresizingMaskIntoConstraints=NO;
     
-    //UIrotation
-//    if(IS_IPAD){
-        self.backgroundView.translatesAutoresizingMaskIntoConstraints=NO;
-        loginDirection.translatesAutoresizingMaskIntoConstraints=NO;
-        loginTextfieldImage.translatesAutoresizingMaskIntoConstraints=NO;
-        privacyButton.translatesAutoresizingMaskIntoConstraints=NO;
-        
-        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_backgroundView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_backgroundView)]];
-        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_backgroundView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_backgroundView)]];
-        
-        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:loginDirection attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
-        
-        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-90-[loginDirection(70)]-20-[loginTextfieldImage(69)]-13-[privacyButton(20)]" options:NSLayoutFormatAlignAllCenterX metrics:0 views:NSDictionaryOfVariableBindings(loginDirection,loginTextfieldImage,privacyButton)]];
-        
-        
-//    }
-//    else if (IS_IPHONE){
-//        CGFloat heightOfTextFields = 150;
-//        [self.backgroundView setFrame:self.view.frame];
-//        [loginDirection setFrame:CGRectMake((self.view.frame.size.width/2)-(300/2), 70,300, 70)];
-//        [loginTextfieldImage setFrame:CGRectMake(20, heightOfTextFields, 280, 69)];
-//        [privacyButton setFrame:CGRectMake(self.view.frame.size.width/2-70,loginTextfieldImage.frame.origin.y + loginTextfieldImage.frame.size.height+10,140,20)];
-//        
-//    }
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_backgroundView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_backgroundView)]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_backgroundView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_backgroundView)]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:loginDirection attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
+    
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-90-[loginDirection(70)]-20-[loginTextfieldImage(69)]-13-[privacyButton(20)]" options:NSLayoutFormatAlignAllCenterX metrics:0 views:NSDictionaryOfVariableBindings(loginDirection,loginTextfieldImage,privacyButton)]];
+
 }
 
 -(void)forgotPasswordAction{
@@ -122,6 +100,7 @@
 -(void)privacySegue{
     [self performSegueWithIdentifier:@"termsSegue" sender:self];
 }
+
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
@@ -129,15 +108,7 @@
 
 }
 -(void)viewWillDisappear:(BOOL)animated{
-    
-    if([_emailField isFirstResponder]){
-        [_passwordField resignFirstResponder];
-    }
-    else{
-        
-        [_emailField resignFirstResponder];
-    }
-    
+    [_emailField isFirstResponder] ? [_passwordField resignFirstResponder] : [_emailField resignFirstResponder];
 }
     
     //keyboard stuff
@@ -148,7 +119,6 @@
         return YES;
     }
     else{
-        
         [self loginButtonAction];
         return YES;
     }
@@ -226,30 +196,12 @@
             // Store the data
             [MyUser storeDefaults:result];
             
-            [self performSegueWithIdentifier:@"loginView" sender:self];
+            //TODO: SEGUE TO CLASS
 
         }
 
     }];
 
 }
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"loginView"]){
-       ClassTableViewController *classTableVC = (ClassTableViewController*)segue.destinationViewController;
-        classTableVC.managedObjectContext = _managedObjectContext;
-        classTableVC.demoManagedObjectContext=_demoManagedObjectContext;
-    }
-
-    else if ([segue.identifier isEqualToString:@"forgotPasswordSegue"]){
-        HelpViewController *helpVC = (HelpViewController*)segue.destinationViewController;
-        helpVC.previousSegue=segue.identifier;
-    }
-
-}
-
 
 @end

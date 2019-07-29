@@ -341,4 +341,14 @@
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
+
+- (void) restartApp {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ClassNavigationViewController"];
+    [self.window setRootViewController:vc];
+    [self.window makeKeyWindow];
+}
+
+
 @end
+

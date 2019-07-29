@@ -213,7 +213,8 @@
             [updateService selectRowToUpdateWhereColumn:@"taken" equalTo:objId];
             [updateService saveUpdate];
             
-            [self performSegueWithIdentifier:@"stuLogout" sender:self];
+            
+
         }
     }
     else if ([selectedCell isEqualToString:@"Sign your students up now!"]||[selectedCell isEqualToString:@"How to sign up"]){
@@ -475,12 +476,6 @@
         settingsVC.studentObj=self.studentObj;
         settingsVC.teacherObj=self.teacherObj;
         settingsVC.demoManagedObjectContext=self.demoManagedObjectContext;
-    }
-    else if([segue.identifier isEqualToString:@"stuLogout"]){
-        UINavigationController *navigationController = (UINavigationController *)segue.destinationViewController;
-        LaunchViewController *controller = [navigationController.viewControllers objectAtIndex:0];
-        controller.managedObjectContext = self.studentObj.managedObjectContext;
-        controller.demoManagedObjectContext=self.demoManagedObjectContext;
     }
     else if ([segue.identifier isEqualToString:@"teacherToDemoSegue"]||[segue.identifier isEqualToString:@"studentToDemoSegue"]){
         StartViewController *startVC = (StartViewController*)segue.destinationViewController;

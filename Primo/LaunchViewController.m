@@ -14,6 +14,11 @@
 
 @implementation LaunchViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+}
+
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
@@ -27,8 +32,9 @@
             NSDictionary *userDict = [rows firstObject];
             [MyUser storeDefaults:userDict];
             
-            [self performSegueWithIdentifier:@"introteach" sender:self];
-                    
+            AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+            [appDelegate restartApp];
+            
         }];
 
     }
