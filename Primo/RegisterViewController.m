@@ -274,8 +274,7 @@
 }
 
 -(void)registerNew{
-    NSLog(@"register new");
-
+    
     //Input the loading view
     self.navigationItem.hidesBackButton=YES;
     UIView *loadingView = [[UIView alloc]initWithFrame:self.view.frame];
@@ -309,9 +308,6 @@
         if (rows.count > 0) {
             NSLog(@"print error here");
         }else{
-            
-            NSLog(@"sadfasdfasf");
-            
             self.createParam = [@{@"Email":lowerEmail,@"Password":self.passwordField.text} mutableCopy];
             
             [self performSegueWithIdentifier:@"profileseg" sender:self];

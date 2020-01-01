@@ -29,7 +29,7 @@ static MyUser* sharedUser = nil;
     [defaults setObject:userDict[@"UserId"] forKey:@"UserId"];
     [defaults setObject:userDict[@"FirstName"] forKey:@"FirstName"];
     [defaults setObject:userDict[@"LastName"] forKey:@"LastName"];
-    [defaults setObject:userDict[@"Gender"] forKey:@"Gender"];
+    [defaults setObject:userDict[@"Gender"] forKey:@"Title"];
     [defaults setObject:userDict[@"UniversalToken"] forKey:@"UniversalToken"];
     [defaults synchronize];
     
@@ -59,7 +59,7 @@ static MyUser* sharedUser = nil;
     [defaults removeObjectForKey:@"UserId"];
     [defaults removeObjectForKey:@"FirstName"];
     [defaults removeObjectForKey:@"LastName"];
-    [defaults removeObjectForKey:@"Gender"];
+    [defaults removeObjectForKey:@"Title"];
     [defaults removeObjectForKey:@"UniversalToken"];
     [defaults synchronize];
     

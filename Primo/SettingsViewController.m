@@ -30,7 +30,7 @@
     self.navigationItem.title = @"Settings";
     
     _userType = [[NSUserDefaults standardUserDefaults]objectForKey:@"UserType"];
-            _settingsArray = [[NSArray alloc]initWithObjects:@"Change Email",@"Change Password",@"Delete Current Class",@"Delete Account",nil];
+            _settingsArray = [[NSArray alloc]initWithObjects:@"Change Email",@"Change Password",nil];
     
     //Initialize the mananged object context because its not passed in student's view
     

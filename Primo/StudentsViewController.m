@@ -82,11 +82,10 @@
     
     //Teacher's Name
     NSString *lastName = [userDefaults objectForKey:@"LastName"];
-    if ([[userDefaults objectForKey:@"Gender"] isEqualToString:@"Male"]) {
-        self.nameOfTeacher =[NSString stringWithFormat:@"Mr. %@",lastName];
-    }
-    else if ([[userDefaults objectForKey:@"Gender"] isEqualToString:@"Female"]){
-        self.nameOfTeacher =[NSString stringWithFormat:@"Ms. %@",lastName];
+    NSString *title = [userDefaults objectForKey:@"Title"];
+    
+    if (title != nil){
+        self.nameOfTeacher =[NSString stringWithFormat:@"%@ %@",title,lastName];
     }
     else{
         self.nameOfTeacher = @"";
@@ -230,8 +229,8 @@
         
         UIButton *buttonSub = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [buttonSub setBackgroundImage:[UIImage imageNamed:@"MinusImage"] forState:UIControlStateNormal];
-        [buttonSub addTarget:self action:@selector(buttonArithmeticAction:) forControlEvents:UIControlEventTouchUpInside];
-        [buttonSub setTag:200];
+        [buttonSub addTarget:self action:@selector(buttonArithmeticAction:) forControlEvents:UIControlEventTouchUpInside];//
+        [buttonSub setTag:200];//
         [cell.contentView addSubview:buttonSub];
         
         UILabel *coinLabel = [[UILabel alloc]init];

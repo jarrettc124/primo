@@ -31,6 +31,7 @@
     NSLog(@"monthnumber %d", self.monthNumberInLogVC);
     NSLog(@"CLASS %@",self.selectedStudentObjFromClassTable.nameOfclass);
     
+    
     UIImageView *backgroundView = [[UIImageView alloc] initWithFrame:self.view.frame];
     [backgroundView setImage:[UIImage imageNamed:@"blackboardBackground"]];
     backgroundView.userInteractionEnabled=YES;

@@ -17,6 +17,6 @@
 @dynamic email;
 @dynamic firstName;
 @dynamic lastName;
-@dynamic gender;
+@dynamic title;
 
 @end

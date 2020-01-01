@@ -24,8 +24,6 @@
 }
 
 -(void)insertObjectInColumnWhere:(NSString*)column setObjectValue:(NSString*)value{
-    NSLog(@"%@ %@",column,value);
-    
     [self.columnArray addObject:column];
     [self.valuesArray addObject:value];
 }
@@ -83,7 +81,7 @@
         NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
         
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-        [request setURL:[NSURL URLWithString:@"https://lcedu-php.herokuapp.com/user_login.php"]];
+        [request setURL:[NSURL URLWithString:@"http://www.pixelandprocessor.com/stanton/user_login.php"]];
         [request setHTTPMethod:@"POST"];
         [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
         [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -151,7 +149,7 @@
         NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
         
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-        [request setURL:[NSURL URLWithString:@"https://lcedu-php.herokuapp.com/user_login.php"]];
+        [request setURL:[NSURL URLWithString:@"http://www.pixelandprocessor.com/stanton/user_login.php"]];
         [request setHTTPMethod:@"POST"];
         [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
         [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -162,13 +160,7 @@
         NSURLSessionDownloadTask *task = [session downloadTaskWithRequest:request completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
             
             
-            NSArray* jsonArray = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:location] options:NSJSONReadingAllowFragments error:&error];
-            
-            id json = nil;
-            
-            if (jsonArray.count > 0){
-                json = jsonArray.firstObject;
-            }
+            id json = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:location] options:NSJSONReadingAllowFragments error:&error];
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 
@@ -228,7 +220,7 @@
         NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
         
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-        [request setURL:[NSURL URLWithString:@"https://lcedu-php.herokuapp.com/insertordelete.php"]];
+        [request setURL:[NSURL URLWithString:@"http://www.pixelandprocessor.com/stanton/insertordelete.php"]];
         [request setHTTPMethod:@"POST"];
         [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
         [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -284,15 +276,12 @@
         
         
         NSString *post = [NSString stringWithFormat:@"sql=%@",self.sql];
-        
-        NSLog(@"%@",post);
-        
         NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     
         NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
         
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-        [request setURL:[NSURL URLWithString:@"https://lcedu-php.herokuapp.com/insertordelete.php"]];
+        [request setURL:[NSURL URLWithString:@"http://www.pixelandprocessor.com/stanton/insertordelete.php"]];
         [request setHTTPMethod:@"POST"];
         [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
         [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];

@@ -89,11 +89,8 @@
     self.backgroundView.userInteractionEnabled=YES;
     [self.view addSubview:self.backgroundView];
 
-    
-    
     self.userType = [[NSUserDefaults standardUserDefaults] objectForKey:@"UserType"];
 
-    
     //loading Views
     self.loadingView = [[UIActivityIndicatorView alloc]init];
     self.loadingLabel = [[UILabel alloc]init];
@@ -103,7 +100,6 @@
     [self.loadingLabel setAlpha:0];
     [self.view addSubview:self.loadingView];
     [self.view addSubview:self.loadingLabel];
-    
     
     CGFloat tHeight = 310;
     
@@ -140,11 +136,10 @@
         
         //Teacher's Name
         NSString *lastName = [userDefaults objectForKey:@"LastName"];
-        if ([[userDefaults objectForKey:@"Gender"] isEqualToString:@"Male"]) {
-            self.nameOfTeacher =[NSString stringWithFormat:@"Mr. %@",lastName];
-        }
-        else if ([[userDefaults objectForKey:@"Gender"] isEqualToString:@"Female"]){
-            self.nameOfTeacher =[NSString stringWithFormat:@"Ms. %@",lastName];
+        NSString *title = [userDefaults objectForKey:@"Title"];
+        
+        if (title != nil){
+            self.nameOfTeacher =[NSString stringWithFormat:@"%@ %@",title,lastName];
         }
         else{
             self.nameOfTeacher = @"";
@@ -706,7 +701,6 @@
         
     }
     else{
-        NSLog(@"ddddd");
         [self updateDatabaseInformation:nil];
     }
     
@@ -987,8 +981,7 @@
 }
 
 -(void)studentInfo{
-    
-    NSString *objId = [[NSUserDefaults standardUserDefaults] objectForKey:@"ObjectId"];
+            NSString *objId = [[NSUserDefaults standardUserDefaults] objectForKey:@"ObjectId"];
     
     if ([self.userType isEqualToString:@"Teacher"]) {
         
@@ -1045,16 +1038,14 @@
                 
             } completion:^(BOOL finished) {
                 
-                
-                
-                
                 //set button after everything is set
                 self.navigationItem.rightBarButtonItem=self.menuButton;
+                
                 
                 //we can use this to fetch from database to update
                 [self classesListFromParse];
                 [self.classesTable reloadData];
-                NSLog(@"asdfadsfa");
+                
                 [self updateDatabaseInformation:studentObjArray];
                 
             }];
@@ -2292,11 +2283,8 @@
 
 
 -(void)updateDatabaseInformation:(NSArray*)studentFromDatabase{
-    
-    
-    
-    
     NSString *objId = [[NSUserDefaults standardUserDefaults] objectForKey:@"ObjectId"];
+
 
     [_loadingLabel setText:@"Updating Students..."];
     
@@ -2325,6 +2313,7 @@
                     self.reachabilityLabel=nil;
                 }
                 
+                
                 NSMutableArray *studentsSignedUp = [[NSMutableArray alloc]initWithCapacity:0];
                 
                 int totalIntCoins=0;
@@ -2352,7 +2341,7 @@
                         totalIntSigned++;
                         [studentsSignedUp addObject:studentObject];
                     }
-
+                    
                     [_managedObjectContext save:&error];
                 }
                 
@@ -2364,7 +2353,7 @@
                         
                         predicate = [NSPredicate predicateWithFormat:@"objectId = %@",studentObj.objectId];
                         NSLog(@"array: %@",[rows filteredArrayUsingPredicate:predicate]);
-                        if ([[rows filteredArrayUsingPredicate:predicate] count] == 0) {
+                        if ([[rows filteredArrayUsingPredicate:predicate] count] ==0) {
                             NSLog(@"delete: %@",[rows filteredArrayUsingPredicate:predicate]);
                             [_managedObjectContext deleteObject:studentObj];
                         }

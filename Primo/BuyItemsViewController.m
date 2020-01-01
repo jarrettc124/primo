@@ -48,11 +48,10 @@
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *lastName = [userDefaults objectForKey:@"LastName"];
-    if ([[userDefaults objectForKey:@"Gender"] isEqualToString:@"Male"]) {
-        self.nameOfTeacher =[NSString stringWithFormat:@"Mr. %@",lastName];
-    }
-    else if ([[userDefaults objectForKey:@"Gender"] isEqualToString:@"Female"]){
-        self.nameOfTeacher =[NSString stringWithFormat:@"Ms. %@",lastName];
+    NSString *title = [userDefaults objectForKey:@"Title"];
+    
+    if (title != nil){
+        self.nameOfTeacher =[NSString stringWithFormat:@"%@ %@",title,lastName];
     }
     else{
         self.nameOfTeacher = @"";

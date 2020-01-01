@@ -36,7 +36,7 @@
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:@"https://lcedu-php.herokuapp.com/logs/user_log.php"]];
+    [request setURL:[NSURL URLWithString:@"http://www.pixelandprocessor.com/stanton/logs/user_log.php"]];
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -72,7 +72,7 @@
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:@"https://lcedu-php.herokuapp.com/logs/rename_class.php"]];
+    [request setURL:[NSURL URLWithString:@"http://www.pixelandprocessor.com/stanton/logs/rename_class.php"]];
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -101,7 +101,7 @@
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:@"https://lcedu-php.herokuapp.com/logs/user_log.php"]];
+    [request setURL:[NSURL URLWithString:@"http://www.pixelandprocessor.com/stanton/logs/user_log.php"]];
     [request setHTTPMethod:@"POST"];
     [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
@@ -125,7 +125,7 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
-        NSString *rawURL = [NSString stringWithFormat:@"https://lcedu-php.herokuapp.com/logs/%@/%@/%@/%d/log.txt",_logType,idNum,[nameOfClass lowercaseString],month];
+        NSString *rawURL = [NSString stringWithFormat:@"http://www.pixelandprocessor.com/stanton/logs/%@/%@/%@/%d/log.txt",_logType,idNum,[nameOfClass lowercaseString],month];
 
         NSString *newURL = [rawURL stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
 

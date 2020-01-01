@@ -42,7 +42,7 @@
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
-    NSURL *url = [NSURL URLWithString:@"https://lcedu-php.herokuapp.com/terms/terms.html"];
+    NSURL *url = [NSURL URLWithString:@"http://www.pixelandprocessor.com/stanton/terms/terms.html"];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
     UIWebView *privacyWebViews = [[UIWebView alloc]initWithFrame:CGRectMake(self.view.frame.origin.x, 64, self.view.frame.size.width, self.view.frame.size.height-120)];
     [privacyWebViews loadRequest:urlRequest];

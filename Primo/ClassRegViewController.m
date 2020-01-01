@@ -15,7 +15,7 @@
 @property (nonatomic,strong) NSArray *pickerArray;
 @property (nonatomic,strong) BouncingPencil *pencilImage;
 @property (nonatomic,strong) NSString *teachersName;
-@property (nonatomic,strong) UIPickerView *pickerGender;
+@property (nonatomic,strong) UIPickerView *pickerTitle;
 
 @end
 
@@ -28,10 +28,10 @@
     self.navigationItem.hidesBackButton=YES;
     
     //pickerview
-    self.pickerArray = [[NSArray alloc]initWithObjects:@"Male",@"Female", nil];
-    self.pickerGender = [[UIPickerView alloc]init];
-    self.pickerGender.delegate=self;
-    self.pickerGender.dataSource=self;
+    self.pickerArray = [[NSArray alloc]initWithObjects:@"Ms.",@"Mrs.",@"Mr.", nil];
+    self.pickerTitle = [[UIPickerView alloc]init];
+    self.pickerTitle.delegate=self;
+    self.pickerTitle.dataSource=self;
     
       // Do any additional setup after loading the view.
     UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"blackboardBackground"]];
@@ -67,28 +67,32 @@
     UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(createProfile)];
     self.navigationItem.rightBarButtonItem=rightBarButton;
     
-    self.firstNameField = [[UITextField alloc]initWithFrame:CGRectMake(5,4, 275, 30)];
+    self.firstNameField = [[UITextField alloc]initWithFrame:CGRectMake(5,39, 275, 30)];
     self.firstNameField.placeholder = @"First Name";
     self.firstNameField.borderStyle = UITextBorderStyleNone;
     self.firstNameField.delegate = self;
     [self.firstNameField addTarget:self action:@selector(checkFields) forControlEvents:UIControlEventEditingChanged];
     [textfieldThree addSubview:_firstNameField];
     
-    self.lastNameField = [[UITextField alloc]initWithFrame:CGRectMake(5,39, 275, 30)];
+    self.lastNameField = [[UITextField alloc]initWithFrame:CGRectMake(5,72, 275, 30)];
+
+    
     self.lastNameField.placeholder = @"Last Name";
     self.lastNameField.borderStyle = UITextBorderStyleNone;
     self.lastNameField.delegate=self;
     [self.lastNameField addTarget:self action:@selector(checkFields) forControlEvents:UIControlEventEditingChanged];
     [textfieldThree addSubview:_lastNameField];
     
-    self.genderField = [[UITextField alloc]initWithFrame:CGRectMake(5,72, 275, 30)];
-    self.genderField.placeholder = @"Gender";
-    self.genderField.borderStyle = UITextBorderStyleNone;
-    self.genderField.delegate=self;
-    [self.genderField addTarget:self action:@selector(checkFields) forControlEvents:UIControlEventEditingChanged];
-    [textfieldThree addSubview:_genderField];
+    self.titleField = [[UITextField alloc]initWithFrame:CGRectMake(5,4, 275, 30)];
     
-    [self genderPicker];
+
+    self.titleField.placeholder = @"Ms. , Mr. , Ms.";
+    self.titleField.borderStyle = UITextBorderStyleNone;
+    self.titleField.delegate=self;
+    [self.titleField addTarget:self action:@selector(checkFields) forControlEvents:UIControlEventEditingChanged];
+    [textfieldThree addSubview:_titleField];
+    
+    [self titlePicker];
     [self checkFields];
 
 //    if (IS_IPHONE) {
@@ -156,7 +160,7 @@
 
 -(void)checkFields{
     
-    if ([self.firstNameField.text isEqualToString:@""]||[self.lastNameField.text isEqualToString:@""]||[self.genderField.text isEqualToString:@""]) {
+    if ([self.firstNameField.text isEqualToString:@""]||[self.lastNameField.text isEqualToString:@""]||[self.titleField.text isEqualToString:@""]) {
         self.navigationItem.rightBarButtonItem.enabled= NO;
         self.pencilImage.hidden=YES;
 
@@ -193,30 +197,25 @@
     [insertUser insertObjectInColumnWhere:@"UserType" setObjectValue:[NSString stringWithFormat:@"%d",userNumType]];
     [insertUser insertObjectInColumnWhere:@"FirstName" setObjectValue:firstNameCap];
     [insertUser insertObjectInColumnWhere:@"LastName" setObjectValue:lastNameCap];
-    [insertUser insertObjectInColumnWhere:@"Gender" setObjectValue:self.genderField.text];
+    [insertUser insertObjectInColumnWhere:@"Gender" setObjectValue:self.titleField.text];
     [insertUser insertObjectInColumnWhere:@"UniversalToken" setObjectValue:[[NSProcessInfo processInfo] globallyUniqueString]];
     [insertUser saveTheUserInDatabaseInBackground:^(NSError *error, id result) {
-        
-        NSLog(@"result: %@",result);
-        
         if (error) {
-            
             if (error.code == 400) {
                 NSLog(@"DUPLICATE!");
             }
-            
         }else{
             
             if ([self.userType isEqualToString:@"Teacher"]) {
                 
-                if ([self.genderField.text isEqualToString:@"Male"]) {
-                    self.teachersName =[NSString stringWithFormat:@"Mr. %@",lastNameCap];
-                }
-                else if ([self.genderField.text isEqualToString:@"Female"]){
-                    self.teachersName =[NSString stringWithFormat:@"Ms. %@",lastNameCap];
+                
+                NSString *title = self.titleField.text;
+                
+                if (title != nil){
+                    self.teachersName =[NSString stringWithFormat:@"%@ %@",title,lastNameCap];
                 }
                 else{
-                    self.teachersName = @"ERROR";
+                    self.teachersName = @"";
                 }
                 
                 InsertWebService *insertTeacherObject = [[InsertWebService alloc]initWithTable:@"TeacherObject"];
@@ -239,20 +238,20 @@
     
 }
 
--(void)genderPicker{
+-(void)titlePicker{
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(donePicker)];
     NSArray *toolbarItems = [NSArray arrayWithObjects: doneButton, nil];
     
-    UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-self.pickerGender.frame.size.height-44, 320, 44)];
+    UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, self.view.frame.size.height-self.pickerTitle.frame.size.height-44, 320, 44)];
     [toolBar setBarStyle:UIBarStyleDefault];
     [toolBar setItems:toolbarItems];
-    self.genderField.inputView = self.pickerGender;
-    self.genderField.inputAccessoryView = toolBar;
+    self.titleField.inputView = self.pickerTitle;
+    self.titleField.inputAccessoryView = toolBar;
 }
 
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    [self.genderField setText:[self.pickerArray objectAtIndex:row]];
+    [self.titleField setText:[self.pickerArray objectAtIndex:row]];
 }
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     return [_pickerArray objectAtIndex:row];
@@ -265,9 +264,9 @@
 }
 
 -(void)donePicker{
-    [_pickerGender removeFromSuperview];
-    self.pickerGender =nil;
-    [_genderField resignFirstResponder];
+    [_pickerTitle removeFromSuperview];
+    self.pickerTitle =nil;
+    [_titleField resignFirstResponder];
     [self checkFields];
 
 }

@@ -765,7 +765,7 @@
 //            }
 //            else if (IS_IPAD){
                 tutorialbackground.translatesAutoresizingMaskIntoConstraints=NO;
-                [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[tutorialbackground(280)]-100-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(tutorialbackground)]];
+                [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[tutorialbackground(280)]-20-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(tutorialbackground)]];
                 [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-100-[tutorialbackground(170)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(tutorialbackground)]];
                 
                 //Set bouncing pencil

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0820"
+   LastUpgradeVersion = "0720"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -17,7 +17,7 @@
                BlueprintIdentifier = "C455336718F49EBA00520B99"
                BuildableName = "LCEdu.app"
                BlueprintName = "LCEdu"
-               ReferencedContainer = "container:LCEdu.xcodeproj">
+               ReferencedContainer = "container:Primo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C455338818F49EBA00520B99"
-               BuildableName = "LCEduTests.xctest"
-               BlueprintName = "LCEduTests"
-               ReferencedContainer = "container:LCEdu.xcodeproj">
+               BuildableName = "PrimoTests.xctest"
+               BlueprintName = "PrimoTests"
+               ReferencedContainer = "container:Primo.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -45,7 +45,7 @@
             BlueprintIdentifier = "C455336718F49EBA00520B99"
             BuildableName = "LCEdu.app"
             BlueprintName = "LCEdu"
-            ReferencedContainer = "container:LCEdu.xcodeproj">
+            ReferencedContainer = "container:Primo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -68,16 +68,9 @@
             BlueprintIdentifier = "C455336718F49EBA00520B99"
             BuildableName = "LCEdu.app"
             BlueprintName = "LCEdu"
-            ReferencedContainer = "container:LCEdu.xcodeproj">
+            ReferencedContainer = "container:Primo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "OS_ACTIVITY_MODE"
-            value = "disable"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -94,7 +87,7 @@
             BlueprintIdentifier = "C455336718F49EBA00520B99"
             BuildableName = "LCEdu.app"
             BlueprintName = "LCEdu"
-            ReferencedContainer = "container:LCEdu.xcodeproj">
+            ReferencedContainer = "container:Primo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

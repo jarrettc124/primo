@@ -20,7 +20,7 @@
 
 @property (nonatomic,strong) UITextField *firstNameField;
 @property (nonatomic,strong) UITextField* lastNameField;
-@property (nonatomic,strong) UITextField *genderField;
+@property (nonatomic,strong) UITextField *titleField;
 
 
 @property (nonatomic,strong) NSMutableDictionary* createParam;
